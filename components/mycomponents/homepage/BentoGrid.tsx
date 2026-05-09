@@ -31,7 +31,7 @@ const features = [
 
 export function FeaturesBento() {
   return (
-    <section className="py-24 px-6 bg-[#F8FAFC]">
+    <section className="py-24 px-6 ">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((f, i) => (
@@ -42,7 +42,7 @@ export function FeaturesBento() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 rounded-[2.5rem] bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all group"
+              className="p-8 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all group"
             >
               <div className={`w-14 h-14 ${f.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
                 {f.icon}

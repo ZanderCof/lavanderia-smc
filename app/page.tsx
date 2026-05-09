@@ -8,7 +8,7 @@ import { HeroLaundry } from "@/components/mycomponents/homepage/HeroLaundry";
 export default function Home() {
   return (
     // Rimosso max-w-3xl per permettere alla navbar e alla hero di respirare a pieno schermo
-    <div className="flex flex-col min-h-screen bg-[#F8FAFC]"> 
+    <div className="flex flex-col min-h-screen "> 
       
       <main className="flex-1 w-full">
         {/* Sezione Hero principale */}
