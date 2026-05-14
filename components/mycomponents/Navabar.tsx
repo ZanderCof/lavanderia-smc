@@ -27,6 +27,7 @@ export default function Navbar() {
     { name: "Chi Siamo", href: "/chi-siamo" },
     { name: "Servizi", href: "/servizi" },
     { name: "Listino Prezzi", href: "/prezzi" },
+    { name: "Abiti da Cerimonia", href: "/cerimonia" },
   ];
 
   const contactActions = [
@@ -39,7 +40,7 @@ export default function Navbar() {
     },
     {
       icon: <MessageCircle size={18} />,
-      href: "https://wa.me",
+      href: "https://wa.me/390299050084",
       label: "WhatsApp",
       color: "from-emerald-400 to-emerald-600",
       ring: "ring-emerald-400/30",
@@ -106,7 +107,7 @@ export default function Navbar() {
               </div>
 
               {/* SOTTOTITOLO */}
-              <span className="text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1 pl-[2px]">
+              <span className="text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1 pl-0.5">
                 Dal 1995 · Senago
               </span>
             </div>
@@ -157,7 +158,7 @@ export default function Navbar() {
             >
               <div className="w-5 h-4 flex flex-col justify-between">
                 <motion.span
-                  className="block h-[2px] bg-slate-700 rounded-full origin-center"
+                  className="block h-0.5 bg-slate-700 rounded-full origin-center"
                   animate={
                     isMobileMenuOpen
                       ? { rotate: 45, y: 7 }
@@ -166,7 +167,7 @@ export default function Navbar() {
                   transition={{ duration: 0.3, ease: "easeInOut" }}
                 />
                 <motion.span
-                  className="block h-[2px] bg-slate-700 rounded-full"
+                  className="block h-0.5 bg-slate-700 rounded-full"
                   animate={
                     isMobileMenuOpen
                       ? { opacity: 0, scaleX: 0 }
@@ -175,7 +176,7 @@ export default function Navbar() {
                   transition={{ duration: 0.2 }}
                 />
                 <motion.span
-                  className="block h-[2px] bg-slate-700 rounded-full origin-center"
+                  className="block h-0.5 bg-slate-700 rounded-full origin-center"
                   animate={
                     isMobileMenuOpen
                       ? { rotate: -45, y: -7 }
@@ -200,7 +201,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-slate-900/30 backdrop-blur-md z-[60]"
+              className="fixed inset-0 bg-slate-900/30 backdrop-blur-md z-60"
             />
 
             {/* DRAWER */}
@@ -214,7 +215,7 @@ export default function Navbar() {
                 stiffness: 250,
                 mass: 0.8,
               }}
-              className="fixed top-0 right-0 h-full w-72 bg-white z-[70] flex flex-col overflow-hidden"
+              className="fixed top-0 right-0 h-full w-72 bg-white z-70 flex flex-col overflow-hidden"
               style={{
                 boxShadow: "-20px 0 60px rgba(0,0,0,0.12)",
                 borderLeft: "1px solid rgba(148,163,184,0.12)",
@@ -314,7 +315,7 @@ export default function Navbar() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 + i * 0.07 }}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl bg-gradient-to-r ${action.color} text-white font-semibold text-[13px] ring-2 ${action.ring} active:scale-95 transition-transform`}
+                      className={`flex items-center gap-3 px-4 py-3 rounded-xl bg-linear-to-r ${action.color} text-white font-semibold text-[13px] ring-2 ${action.ring} active:scale-95 transition-transform`}
                     >
                       {action.icon}
                       {action.label}
