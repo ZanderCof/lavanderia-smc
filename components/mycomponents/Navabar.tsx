@@ -6,7 +6,7 @@ import { Phone, MessageCircle, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo_lavanderia from "@/public/logo_lavanderia.png";
-import nome_navbar from "@/public/nome_navbar (2).png";
+import nome_navbar from "@/public/nome_navbar.png";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,7 +62,7 @@ export default function Navbar() {
       <nav
         className={`mx-auto max-w-5xl transition-all duration-700 ease-out px-4 ${
           isScrolled
-            ? "bg-white/75 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/60 rounded-2xl"
+            ? "bg-white/10 backdrop-blur-2xl backdrop-saturate-50 rounded-1xl shadow-none border border-white/5 relative overflow-visible after:absolute after:inset-x-0 after:-bottom-8 after:h-8 after:bg-gradient-to-b after:from-white/5 after:to-transparent after:pointer-events-none"
             : "bg-transparent"
         }`}
       >
@@ -78,14 +78,13 @@ export default function Navbar() {
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
               className={`relative shrink-0 w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center transition-all duration-500 ${
                 isScrolled
-                  ? "shadow-md shadow-blue-100"
+                  ? ""
                   : "bg-white/20 backdrop-blur-sm"
               }`}
             >
               <Image
                 src={logo_lavanderia}
-                width={42}
-                height={42}
+                fill
                 alt="Logo LavaseccoSCM"
                 className="object-contain"
               />
@@ -106,14 +105,14 @@ export default function Navbar() {
               </div>
 
               {/* SOTTOTITOLO */}
-              <span className="text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1 pl-[2px]">
+              <span className="text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1 pl-[1px] text-right">
                 Dal 1995 · Senago
               </span>
             </div>
           </Link>
 
           {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center gap-1 bg-slate-50/80 rounded-xl px-1.5 py-1.5 border border-slate-100">
+          <div className="hidden md:flex items-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -123,7 +122,7 @@ export default function Navbar() {
                 className="relative px-4 py-1.5 text-[13px] font-semibold text-slate-500 hover:text-slate-900 rounded-lg transition-all duration-200 group"
               >
                 <motion.span
-                  className="absolute inset-0 bg-white rounded-lg shadow-sm"
+                  className="absolute inset-0"
                   initial={false}
                   animate={{
                     opacity: activeLink === link.name ? 1 : 0,
@@ -136,19 +135,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* CTA DESKTOP + MOBILE BUTTON */}
+          {/*MOBILE BUTTON */}
           <div className="flex items-center gap-3">
-            {/* CTA Desktop */}
-            <motion.a
-              href="tel:+390299050084"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.97 }}
-              className="hidden md:flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-[13px] font-bold px-4 py-2 rounded-xl transition-colors duration-200 shadow-lg shadow-blue-600/20"
-            >
-              <Phone size={14} strokeWidth={2.5} />
-              Prenota
-            </motion.a>
-
             {/* MOBILE TOGGLE */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -227,7 +215,7 @@ export default function Navbar() {
                     Navigazione
                   </p>
                   <p className="text-[11px] text-slate-400 mt-0.5">
-                    LavaseccoSCM · Milano
+                    LavaseccoSCM · Senago
                   </p>
                 </div>
                 <button
@@ -326,7 +314,7 @@ export default function Navbar() {
               {/* FOOTER DRAWER */}
               <div className="px-6 py-4 border-t border-slate-50">
                 <p className="text-[10px] text-slate-300 text-center tracking-wider">
-                  LavaseccoSCM · P.IVA 01234567890
+                  Lavasecco SCM · P.IVA 11472860151
                 </p>
               </div>
             </motion.div>
