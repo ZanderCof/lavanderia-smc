@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, ArrowRight, FileText } from "lucide-react"; // Aggiunta icona FileText
+import { Mail, MapPin, Phone, ArrowRight, FileText } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo_lavanderia from "@/public/logo_lavanderia.png";
@@ -15,14 +15,14 @@ export default function Footer() {
         { name: "Lavaggio a secco", href: "/servizi" },
         { name: "Lavanderia Self", href: "/servizi" },
         { name: "Stireria professionale", href: "/servizi" },
-        { name: "Ritiro a domicilio", href: "/consegna" },
+        { name: "Abiti da Cerimonia", href: "/cerimonia" },
       ],
     },
     {
       title: "Supporto",
       links: [
-        { name: "Listino Prezzi", href: "/pricing" },
-        { name: "Domande frequenti", href: "#" },
+        { name: "Listino Prezzi", href: "/prezzi" },
+        { name: "Chi Siamo", href: "/chi-siamo" },
         { name: "Contattaci", href: "/contatti" },
       ],
     },
@@ -30,8 +30,6 @@ export default function Footer() {
       title: "Legale",
       links: [
         { name: "Privacy Policy", href: "/privacy" },
-        { name: "Cookie Policy", href: "/cookie" },
-        { name: "Termini di Servizio", href: "/terms" },
       ],
     },
   ];
@@ -71,7 +69,7 @@ export default function Footer() {
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-100">
                   <Phone size={14} className="text-blue-500" />
                 </div>
-                +39 0123 456789
+                +39 02 99050084
               </div>
               <div className="flex items-center gap-3 text-sm text-slate-600">
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-100">
@@ -79,12 +77,11 @@ export default function Footer() {
                 </div>
                 Via Volta 219, Senago (MI)
               </div>
-              {/* AGGIUNTA P.IVA QUI */}
               <div className="flex items-center gap-3 text-sm text-slate-600">
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-100">
                   <FileText size={14} className="text-blue-500" />
                 </div>
-                P.IVA: 01234567890
+                P.IVA: 1147860151
               </div>
             </div>
           </div>
@@ -118,21 +115,28 @@ export default function Footer() {
             <p className="text-slate-400 text-[11px] font-medium tracking-tight">
               © {currentYear} Lavanderia SCM — Prendetevi cura dei vostri capi.
             </p>
-            {/* P.IVA LEGALE (Obbligatoria per legge nel footer) */}
             <p className="text-slate-400 text-[10px] uppercase tracking-wider">
               P.IVA 1147860151
             </p>
           </div>
 
-          <div className="flex items-center gap-6">
+          {/* EMAIL & CREDIT STARTINGLINE */}
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
              <Link href="mailto:info@lavanderiascm.it" className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors">
               <Mail size={14} />
               info@lavanderiascm.it
             </Link>
-            <div className="flex items-center gap-2 text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">
-              <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />
-              <span className="text-[10px] uppercase tracking-wider font-bold">Operativi oggi</span>
-            </div>
+            
+            {/* BADGE CREDITI STARTINGLINE */}
+            <Link 
+              href="vercel.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-slate-400 hover:text-slate-600 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200/50 transition-all active:scale-95"
+            >
+              <span>Made by</span>
+              <span className="text-slate-800 font-black">StartingLine</span>
+            </Link>
           </div>
         </div>
       </div>

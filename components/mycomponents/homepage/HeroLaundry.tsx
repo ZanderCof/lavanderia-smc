@@ -6,12 +6,13 @@ import { Badge } from "@/components/ui/badge";
 import { Sparkles, Shirt, Truck } from "lucide-react";
 import Image from "next/image";
 import camicia from "@/public/camicia_volante.png";
+import Link from "next/link";
 
 export function HeroLaundry() {
   return (
-    <section className="relative overflow-hidden px-6 pt-32 pb-20 bg-gradient-to-b from-slate-50 to-white">
+    <section className="relative overflow-hidden px-6 pt-32 pb-20 bg-linear-to-b from-slate-50 to-white">
       {/* Background Blur */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-blue-100/40 blur-3xl rounded-full" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-175 bg-blue-100/40 blur-3xl rounded-full" />
 
       <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
         {/* LEFT CONTENT */}
@@ -68,20 +69,24 @@ export function HeroLaundry() {
 
           {/* BUTTONS */}
           <div className="flex flex-wrap gap-4 pt-6">
-            <Button
-              size="lg"
-              className="h-14 px-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold shadow-xl hover:scale-105 transition-all"
-            >
-              Prenota Ora
-            </Button>
+            <Link href="tel:+390299050084">
+              <Button
+                size="lg"
+                className="h-14 px-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold shadow-xl hover:scale-105 transition-all"
+              >
+                Prenota Ora
+              </Button>
+            </Link>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="h-14 px-8 rounded-full border-slate-300 text-slate-700 hover:bg-slate-100 text-base font-semibold"
-            >
-              Scopri i Servizi
-            </Button>
+            <Link href={"/servizi"}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="h-14 px-8 rounded-full border-slate-300 text-slate-700 hover:bg-slate-100 text-base font-semibold"
+              >
+                Scopri i Servizi
+              </Button>
+            </Link>
           </div>
         </motion.div>
 
@@ -90,7 +95,7 @@ export function HeroLaundry() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative h-[550px] flex items-center justify-center"
+          className="relative h-137.5 flex items-center justify-center"
         >
           {/* CARD TOP - SOLO MOBILE */}
           <div className="absolute top-10 left-0 bg-white/90 backdrop-blur-xl border border-slate-100 shadow-2xl rounded-3xl px-6 py-5 z-30 lg:hidden">
