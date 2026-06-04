@@ -63,7 +63,7 @@ export default function Navbar() {
       <nav
         className={`mx-auto max-w-5xl transition-all duration-700 ease-out px-4 ${
           isScrolled
-            ? "bg-white/10 backdrop-blur-2xl backdrop-saturate-50 rounded-1xl shadow-none border border-white/5 relative overflow-visible after:absolute after:inset-x-0 after:-bottom-8 after:h-8 after:bg-gradient-to-b after:from-white/5 after:to-transparent after:pointer-events-none"
+            ? "bg-white/10 backdrop-blur-2xl backdrop-saturate-50 rounded-full shadow-none border border-white/5 relative overflow-visible after:absolute after:inset-x-0 after:-bottom-8 after:h-8 after:bg-gradient-to-b after:from-white/5 after:to-transparent after:pointer-events-none"
             : "bg-transparent"
         }`}
       >
@@ -77,7 +77,7 @@ export default function Navbar() {
             <motion.div
               whileHover={{ rotate: 15, scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className={`relative shrink-0 w-11 h-11 rounded-xl overflow-hidden flex items-center justify-center transition-all duration-500 ${
+              className={`relative shrink-0 w-11 h-11 rounded-2xl overflow-hidden flex items-center justify-center transition-all duration-500 ${
                 isScrolled
                   ? ""
                   : "bg-white/20 backdrop-blur-sm"
@@ -141,7 +141,7 @@ export default function Navbar() {
             {/* MOBILE TOGGLE */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white shadow-md shadow-slate-200/80 border border-slate-100 active:scale-90 transition-all duration-200"
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full shadow-md shadow-slate-200/80 border border-slate-100 active:scale-90 transition-all duration-200"
               aria-label="Apri menu"
             >
               <div className="w-5 h-4 flex flex-col justify-between">

@@ -1,88 +1,130 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Shirt, Truck } from "lucide-react";
 import Image from "next/image";
 import camicia from "@/public/camicia_volante.png";
 import Link from "next/link";
+import { useRef, useEffect, useState } from "react";
 
 export function HeroLaundry() {
-  return (
-    <section className="relative overflow-hidden px-6 pt-32 pb-20 bg-linear-to-b from-slate-50 to-white">
-      {/* Background Blur */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-175 h-175 bg-blue-100/40 blur-3xl rounded-full" />
+  const ref = useRef<HTMLDivElement>(null);
 
-      <div className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-        {/* LEFT CONTENT */}
+  // mouse parallax
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-300, 300], [8, -8]);
+  const rotateY = useTransform(x, [-300, 300], [-8, 8]);
+
+  function handleMouseMove(e: React.MouseEvent) {
+    const rect = ref.current?.getBoundingClientRect();
+    if (!rect) return;
+
+    const offsetX = e.clientX - rect.left - rect.width / 2;
+    const offsetY = e.clientY - rect.top - rect.height / 2;
+
+    x.set(offsetX);
+    y.set(offsetY);
+  }
+
+  // ORBIT ANIMATION
+  const [angle, setAngle] = useState(0);
+
+  useEffect(() => {
+    let frame: number;
+
+    const animate = () => {
+      setAngle((prev) => prev + 0.1);
+      frame = requestAnimationFrame(animate);
+    };
+
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  const bubbles = [
+    { label: "Igienizzazione", color: "blue" },
+    { label: "Piumoni", color: "white" },
+    { label: "Tappeti", color: "blue" },
+    { label: "Pelle", color: "white" },
+    { label: "Abiti da Cerimonia", color: "premium" },
+  ];
+
+  const radiusX = 250;
+  const radiusY = 100;
+
+  return (
+    <section className="relative overflow-hidden px-6 pt-24 pb-14 bg-linear-to-b from-slate-50 to-white">
+
+      {/* GLOBAL GLOW */}
+      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-100/40 blur-[120px] rounded-full" />
+
+      <div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-[1fr_1fr] gap-12 items-center"
+      >
+
+        {/* LEFT (UPGRADED UI SYSTEM) */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7 }}
-          className="space-y-8"
+          className="space-y-7 max-w-xl lg:mx-auto"
         >
-          <Badge className="bg-blue-50 text-blue-700 border border-blue-100 px-5 py-2 rounded-full text-xs tracking-widest uppercase font-bold w-fit">
-            Lavanderia Professionale
+
+          {/* BADGE */}
+          <Badge className="bg-blue-50 text-blue-700 border border-blue-100 px-5 py-2 rounded-full text-[11px] tracking-[0.22em] uppercase font-bold w-fit shadow-sm">
+            Specialisti in Abiti da Cerimonia & capi delicati
           </Badge>
 
-          <div className="space-y-4">
-            <h1 className="text-5xl lg:text-7xl font-black leading-[0.95] tracking-tight text-slate-900">
-              Cura Perfetta <br />
-              Per I Tuoi <span className="text-blue-600">Capi</span>
-            </h1>
+          {/* TITLE */}
+          <h1 className="text-4xl lg:text-[58px] font-black leading-[0.92] tracking-tight text-slate-900">
+            Cura Perfetta
+            <br />
+            Per I Tuoi{" "}
+            <span className="text-blue-600 relative">
+              Capi
+              <span className="absolute -bottom-2 left-0 w-full h-[6px] bg-blue-100 rounded-full -z-10" />
+            </span>
+          </h1>
 
-            <p className="text-lg lg:text-xl text-slate-500 leading-relaxed max-w-xl">
-              Lavaggio professionale di tappeti, piumoni, trapunte, capi
-              delicati e pelle. Qualità, igiene e attenzione ai dettagli per
-              risultati impeccabili.
-            </p>
-          </div>
+          {/* SUBTEXT (più elegante e centrato mentalmente) */}
+          <p className="text-base lg:text-lg text-slate-500 leading-relaxed max-w-lg">
+            Trattamenti professionali per abiti da cerimonia, tessuti delicati, piumoni, tappeti e capi tecnici. 
+            Cura artigianale con standard premium.
+          </p>
 
-          {/* FEATURES */}
-          <div className="flex flex-col gap-4 pt-2">
-            <div className="flex items-center gap-3 text-slate-700">
-              <div className="w-11 h-11 rounded-2xl bg-blue-100 flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-blue-600" />
-              </div>
-              <span className="font-medium">
-                Trattamenti professionali e igienizzanti
-              </span>
-            </div>
-
-            <div className="flex items-center gap-3 text-slate-700">
-              <div className="w-11 h-11 rounded-2xl bg-slate-100 flex items-center justify-center">
-                <Shirt className="w-5 h-5 text-slate-700" />
-              </div>
-              <span className="font-medium">
-                Cura specifica per ogni tessuto
-              </span>
-            </div>
-
-            <div className="flex items-center gap-3 text-slate-700">
-              <div className="w-11 h-11 rounded-2xl bg-blue-100 flex items-center justify-center">
-                <Truck className="w-5 h-5 text-blue-600" />
-              </div>
-              <span className="font-medium">Servizio rapido e affidabile</span>
-            </div>
-          </div>
-
-          {/* BUTTONS */}
-          <div className="flex flex-wrap gap-4 pt-6">
-            <Link href="tel:+390299050084">
-              <Button
-                size="lg"
-                className="h-14 px-8 rounded-full bg-blue-600 hover:bg-blue-700 text-white text-base font-semibold shadow-xl hover:scale-105 transition-all"
+          {/* PILLS (more premium spacing) */}
+          <div className="flex flex-wrap gap-2.5 pt-1">
+            {[
+              "30+ anni esperienza",
+              "Qualità premium",
+              "Cura artigianale",
+            ].map((t) => (
+              <span
+                key={t}
+                className="px-4 py-1.5 rounded-full bg-white/70 backdrop-blur border border-slate-100 text-[13px] font-semibold text-slate-700 shadow-sm"
               >
+                {t}
+              </span>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-wrap gap-4 pt-3">
+            <Link href="tel:+390299050084">
+              <Button className="h-12 px-7 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg hover:scale-[1.03] transition">
                 Prenota Ora
               </Button>
             </Link>
 
-            <Link href={"/servizi"}>
+            <Link href="/servizi">
               <Button
-                size="lg"
                 variant="outline"
-                className="h-14 px-8 rounded-full border-slate-300 text-slate-700 hover:bg-slate-100 text-base font-semibold"
+                className="h-12 px-7 rounded-full border-slate-300 text-slate-700 hover:bg-slate-100 font-semibold"
               >
                 Scopri i Servizi
               </Button>
@@ -90,26 +132,25 @@ export function HeroLaundry() {
           </div>
         </motion.div>
 
-        {/* RIGHT IMAGE */}
+        {/* RIGHT (ORBITAL SYSTEM unchanged) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative h-137.5 flex items-center justify-center"
+          className="relative h-[520px] flex items-center justify-center"
         >
-          {/* CARD TOP - SOLO MOBILE */}
-          <div className="absolute top-10 left-0 bg-white/90 backdrop-blur-xl border border-slate-100 shadow-2xl rounded-3xl px-6 py-5 z-30 lg:hidden">
-            <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">
-              Qualità Garantita
-            </p>
-            <p className="text-lg font-black text-slate-900">
-              Pulizia Professionale
-            </p>
-          </div>
 
-          {/* SHIRT IMAGE */}
+          {/* GLOW */}
+          <div className="absolute w-[280px] h-[280px] bg-blue-100/30 blur-3xl rounded-full" />
+
+          {/* CAMICIA */}
           <motion.div
-            animate={{ y: [0, -18, 0] }}
+            style={{
+              rotateX,
+              rotateY,
+              transformPerspective: 1000,
+            }}
+            animate={{ y: [0, -10, 0] }}
             transition={{
               duration: 4,
               repeat: Infinity,
@@ -122,22 +163,50 @@ export function HeroLaundry() {
               alt="Lavanderia Professionale"
               fill
               priority
-              className="object-contain drop-shadow-[0_40px_45px_rgba(0,0,0,0.18)]"
+              className="object-contain drop-shadow-[0_30px_40px_rgba(15,23,42,0.18)]"
             />
           </motion.div>
 
-          {/* CARD BOTTOM - SOLO MOBILE */}
-          <div className="absolute bottom-10 right-0 bg-white shadow-2xl rounded-3xl px-6 py-5 border border-slate-100 z-30 lg:hidden">
-            <p className="text-xs uppercase tracking-widest text-slate-400 font-bold">
-              Servizi
-            </p>
+          {/* ORBIT BUBBLES */}
+          {bubbles.map((b, i) => {
+            const offset = (360 / bubbles.length) * i;
+            const rad = ((angle * 1 + offset) * Math.PI) / 180;
 
-            <div className="mt-2 space-y-1 text-sm font-semibold text-slate-700">
-              <p>• Lavaggio Tappeti</p>
-              <p>• Piumoni & Trapunte</p>
-              <p>• Capi in Pelle</p>
-            </div>
-          </div>
+            const xPos = Math.cos(rad) * radiusX;
+            const yPos = Math.sin(rad) * radiusY;
+
+            const depth = Math.sin(rad);
+            const isBack = depth < 0;
+
+            return (
+              <motion.div
+                key={b.label}
+                className={`absolute px-4 py-2 rounded-full text-sm font-semibold shadow-lg border ${
+                  b.color === "blue"
+                    ? "bg-blue-50 text-blue-700 border-blue-100"
+                    : b.color === "premium"
+                    ? "bg-white text-slate-900 border-slate-200 shadow-xl font-bold"
+                    : "bg-white text-slate-700 border-slate-100"
+                }`}
+                animate={{
+                  x: xPos,
+                  y: yPos,
+                  scale: isBack ? 0.9 : b.color === "premium" ? 1.08 : 1,
+                }}
+                style={{
+                  zIndex: isBack ? 10 : 30,
+                  opacity: isBack ? 0.55 : 1,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 60,
+                  damping: 18,
+                }}
+              >
+                {b.label}
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
