@@ -63,11 +63,12 @@ export default function Navbar() {
       <nav
         className={`mx-auto max-w-5xl transition-all duration-700 ease-out px-4 ${
           isScrolled
-            ? "bg-white/10 backdrop-blur-2xl backdrop-saturate-50 rounded-full shadow-none border border-white/5 relative overflow-visible after:absolute after:inset-x-0 after:-bottom-8 after:h-8 after:bg-gradient-to-b after:from-white/5 after:to-transparent after:pointer-events-none"
-            : "bg-transparent"
+            ? "bg-white/45 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-lg shadow-black/5"
+            : "bg-white/5 rounded-full"
         }`}
       >
         <div className="flex items-center justify-between h-16 px-2">
+          
           {/* LOGO */}
           <Link
             href="/"
@@ -77,11 +78,7 @@ export default function Navbar() {
             <motion.div
               whileHover={{ rotate: 15, scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300, damping: 15 }}
-              className={`relative shrink-0 w-11 h-11 rounded-2xl overflow-hidden flex items-center justify-center transition-all duration-500 ${
-                isScrolled
-                  ? ""
-                  : "bg-white/20 backdrop-blur-sm"
-              }`}
+              className={`relative shrink-0 w-11 h-11 rounded-2xl overflow-hidden flex items-center justify-center transition-all duration-500 `}
             >
               <Image
                 src={logo_lavanderia}
@@ -91,9 +88,8 @@ export default function Navbar() {
               />
             </motion.div>
 
-            {/* TESTO / LOGO */}
+            {/* TESTO LOGO */}
             <div className="flex flex-col justify-center min-w-0 leading-none">
-              {/* WRAPPER IMMAGINE */}
               <div className="relative min-w-10 sm:w-47.5 h-8.5">
                 <Image
                   src={nome_navbar}
@@ -105,7 +101,6 @@ export default function Navbar() {
                 />
               </div>
 
-              {/* SOTTOTITOLO */}
               <span className="text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1 pl-0.5">
                 Dal 1995 · Senago
               </span>
@@ -120,203 +115,66 @@ export default function Navbar() {
                 href={link.href}
                 onMouseEnter={() => setActiveLink(link.name)}
                 onMouseLeave={() => setActiveLink(null)}
-                className="relative px-4 py-1.5 text-[13px] font-semibold text-slate-500 hover:text-slate-900 rounded-lg transition-all duration-200 group"
+                className={`relative px-4 py-1.5 text-[13px] font-semibold transition-colors rounded-lg  "text-slate-600 hover:text-slate-900"`}
               >
-                <motion.span
-                  className="absolute inset-0"
-                  initial={false}
-                  animate={{
-                    opacity: activeLink === link.name ? 1 : 0,
-                    scale: activeLink === link.name ? 1 : 0.96,
-                  }}
-                  transition={{ duration: 0.15 }}
-                />
                 <span className="relative z-10">{link.name}</span>
               </Link>
             ))}
           </div>
 
-          {/*MOBILE BUTTON */}
-          <div className="flex items-center gap-3">
-            {/* MOBILE TOGGLE */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full shadow-md shadow-slate-200/80 border border-slate-100 active:scale-90 transition-all duration-200"
-              aria-label="Apri menu"
-            >
-              <div className="w-5 h-4 flex flex-col justify-between">
-                <motion.span
-                  className="block h-0.5 bg-slate-700 rounded-full origin-center"
-                  animate={
-                    isMobileMenuOpen
-                      ? { rotate: 45, y: 7 }
-                      : { rotate: 0, y: 0 }
-                  }
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                />
-                <motion.span
-                  className="block h-0.5 bg-slate-700 rounded-full"
-                  animate={
-                    isMobileMenuOpen
-                      ? { opacity: 0, scaleX: 0 }
-                      : { opacity: 1, scaleX: 1 }
-                  }
-                  transition={{ duration: 0.2 }}
-                />
-                <motion.span
-                  className="block h-0.5 bg-slate-700 rounded-full origin-center"
-                  animate={
-                    isMobileMenuOpen
-                      ? { rotate: -45, y: -7 }
-                      : { rotate: 0, y: 0 }
-                  }
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
-                />
-              </div>
-            </button>
-          </div>
+          {/* MOBILE BUTTON */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full transition-all bg-white/10"
+            aria-label="Apri menu"
+          >
+            <div className="w-5 h-4 flex flex-col justify-between">
+              <span className="h-0.5 bg-slate-700 rounded" />
+              <span className="h-0.5 bg-slate-700 rounded" />
+              <span className="h-0.5 bg-slate-700 rounded" />
+            </div>
+          </button>
         </div>
       </nav>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU (invariato) */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
-            {/* OVERLAY */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
+              className="fixed inset-0 bg-black/40 backdrop-blur-md z-50"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-slate-900/30 backdrop-blur-md z-60"
             />
 
-            {/* DRAWER */}
             <motion.div
-              initial={{ x: "100%", opacity: 0.5 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: "100%", opacity: 0 }}
-              transition={{
-                type: "spring",
-                damping: 30,
-                stiffness: 250,
-                mass: 0.8,
-              }}
-              className="fixed top-0 right-0 h-full w-72 bg-white z-70 flex flex-col overflow-hidden"
-              style={{
-                boxShadow: "-20px 0 60px rgba(0,0,0,0.12)",
-                borderLeft: "1px solid rgba(148,163,184,0.12)",
-              }}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              className="fixed top-0 right-0 h-full w-72 bg-white z-50 flex flex-col"
             >
-              {/* HEADER DRAWER */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-slate-50">
-                <div>
-                  <p className="text-[10px] font-black tracking-[0.2em] text-blue-600 uppercase">
-                    Navigazione
-                  </p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">
-                    LavaseccoSCM · Senago
-                  </p>
-                </div>
-                <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-lg flex items-center justify-center transition-colors"
-                >
-                  <svg
-                    className="w-4 h-4 text-slate-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
+              <div className="p-6 border-b border-slate-100">
+                <p className="text-xs font-bold text-blue-600 uppercase">
+                  Menu
+                </p>
+                <p className="text-xs text-slate-400">
+                  Lavasecco SCM · Senago
+                </p>
               </div>
 
-              {/* LINKS */}
-              <nav className="flex-1 px-4 pt-6 pb-4">
-                <div className="flex flex-col gap-1">
-                  {navLinks.map((link, i) => (
-                    <motion.div
-                      key={link.name}
-                      initial={{ opacity: 0, x: 24 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{
-                        delay: i * 0.06 + 0.1,
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 24,
-                      }}
-                    >
-                      <Link
-                        href={link.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="flex items-center justify-between px-4 py-3.5 rounded-xl text-slate-700 hover:text-slate-900 hover:bg-slate-50 active:bg-slate-100 transition-all group"
-                      >
-                        <span className="text-[15px] font-bold">
-                          {link.name}
-                        </span>
-                        <motion.span
-                          className="text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity"
-                          initial={false}
-                        >
-                          <svg
-                            className="w-4 h-4"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2.5}
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              d="M9 5l7 7-7 7"
-                            />
-                          </svg>
-                        </motion.span>
-                      </Link>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* DIVIDER */}
-                <div className="mt-6 mb-4 flex items-center gap-3">
-                  <div className="h-px flex-1 bg-slate-100" />
-                  <span className="text-[10px] font-black tracking-[0.18em] text-slate-300 uppercase">
-                    Contatti
-                  </span>
-                  <div className="h-px flex-1 bg-slate-100" />
-                </div>
-
-                {/* CONTACT BUTTONS */}
-                <div className="flex flex-col gap-2">
-                  {contactActions.map((action, i) => (
-                    <motion.a
-                      key={i}
-                      href={action.href}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.3 + i * 0.07 }}
-                      className={`flex items-center gap-3 px-4 py-3 rounded-xl bg-linear-to-r ${action.color} text-white font-semibold text-[13px] ring-2 ${action.ring} active:scale-95 transition-transform`}
-                    >
-                      {action.icon}
-                      {action.label}
-                    </motion.a>
-                  ))}
-                </div>
-              </nav>
-
-              {/* FOOTER DRAWER */}
-              <div className="px-6 py-4 border-t border-slate-50">
-                <p className="text-[10px] text-slate-300 text-center tracking-wider">
-                  Lavasecco SCM · P.IVA 11472860151
-                </p>
+              <div className="p-4 flex flex-col gap-2">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="px-4 py-3 rounded-xl text-slate-700 hover:bg-slate-50 font-medium"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
               </div>
             </motion.div>
           </>
