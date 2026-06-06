@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import OpenStatus from "@/components/ui/openStatus";
 import logo_lavanderia from "@/public/logo_lavanderia.png";
 import nome_navbar from "@/public/nome_navbar.png";
 
@@ -56,19 +57,17 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
-        isScrolled ? "pt-3 pb-0" : "pt-6 pb-0"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${isScrolled ? "pt-3 pb-0" : "pt-6 pb-0"
+        }`}
     >
       <nav
-        className={`mx-auto max-w-5xl transition-all duration-700 ease-out px-4 ${
-          isScrolled
-            ? "bg-white/45 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-lg shadow-black/5"
-            : "bg-white/5 rounded-full"
-        }`}
+        className={`mx-auto max-w-5xl transition-all duration-200 ease-out px-4 ${isScrolled
+          ? "bg-white/45 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-lg shadow-black/5"
+          : ""
+          }`}
       >
         <div className="flex items-center justify-between h-16 px-2">
-          
+
           {/* LOGO */}
           <Link
             href="/"
@@ -107,6 +106,10 @@ export default function Navbar() {
             </div>
           </Link>
 
+          <div className="hidden md:flex lg:flex items-center">
+            <OpenStatus />
+          </div>
+
           {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center">
             {navLinks.map((link) => (
@@ -120,6 +123,11 @@ export default function Navbar() {
                 <span className="relative z-10">{link.name}</span>
               </Link>
             ))}
+          </div>
+          
+          {/* STATUS */}
+          <div className="scale-90 origin-right shrink-0 whitespace-nowrap">
+            <OpenStatus />
           </div>
 
           {/* MOBILE BUTTON */}
@@ -155,13 +163,24 @@ export default function Navbar() {
               exit={{ x: "100%" }}
               className="fixed top-0 right-0 h-full w-72 bg-white z-50 flex flex-col"
             >
-              <div className="p-6 border-b border-slate-100">
-                <p className="text-xs font-bold text-blue-600 uppercase">
-                  Menu
-                </p>
+              <div className="p-6 border-b border-slate-100 flex flex-col gap-2">
+
+                {/* PRIMA RIGA: MENU + STATUS */}
+                <div className="flex items-center justify-between">
+                  <p className="text-xs font-bold text-blue-600 uppercase">
+                    Menu
+                  </p>
+
+                  <div className="scale-90 origin-right shrink-0 whitespace-nowrap">
+                    <OpenStatus />
+                  </div>
+                </div>
+
+                {/* SECONDA RIGA: INFO */}
                 <p className="text-xs text-slate-400">
                   Lavasecco SCM · Senago
                 </p>
+
               </div>
 
               <div className="p-4 flex flex-col gap-2">
