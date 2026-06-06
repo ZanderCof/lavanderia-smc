@@ -7,7 +7,7 @@ const infoItems = [
   {
     icon: <MapPin size={18} className="text-blue-600 shrink-0 mt-0.5" />,
     label: "Indirizzo",
-    value: "Via Tucidide 56, 20134 Milano",
+    value: "Via A. Volta 219, 20030 Senago",
   },
   {
     icon: <Clock size={18} className="text-blue-600 shrink-0 mt-0.5" />,
@@ -44,8 +44,8 @@ export function LocaleMap() {
           {/* MAPPA */}
           <div className="lg:col-span-2 h-72 lg:h-auto min-h-80">
             <iframe
-              title="LavaseccoSCM - Via Tucidide 56, Milano"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2797.123456789!2d9.2345678!3d45.4654219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786c6b8b1234567%3A0xabcdef1234567890!2sVia%20Tucidide%2C%2056%2C%2020134%20Milano%20MI!5e0!3m2!1sit!2sit!4v1234567890"
+              title="LavaseccoSCM - Via A. Volta 219, 20030 Senago"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2792.5362840461125!2d9.1378355!3d45.579763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786be2d9359dccf%3A0xb8e1f35e008c9937!2sLavasecco%20Scm%20Di%20Ceresa%20Roberta!5e0!3m2!1sit!2sit!4v1780771126697!5m2!1sit!2sit"
               width="100%"
               height="100%"
               style={{ border: 0, display: "block", minHeight: "320px" }}
