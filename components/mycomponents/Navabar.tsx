@@ -124,7 +124,7 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-          
+
           {/* STATUS */}
           <div className="scale-90 origin-right shrink-0 whitespace-nowrap">
             <OpenStatus />
@@ -145,7 +145,7 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* MOBILE MENU (invariato) */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -163,9 +163,9 @@ export default function Navbar() {
               exit={{ x: "100%" }}
               className="fixed top-0 right-0 h-full w-72 bg-white z-50 flex flex-col"
             >
+              {/* HEADER */}
               <div className="p-6 border-b border-slate-100 flex flex-col gap-2">
 
-                {/* PRIMA RIGA: MENU + STATUS */}
                 <div className="flex items-center justify-between">
                   <p className="text-xs font-bold text-blue-600 uppercase">
                     Menu
@@ -176,13 +176,12 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* SECONDA RIGA: INFO */}
                 <p className="text-xs text-slate-400">
                   Lavasecco SCM · Senago
                 </p>
-
               </div>
 
+              {/* NAV LINKS */}
               <div className="p-4 flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <Link
@@ -194,6 +193,36 @@ export default function Navbar() {
                     {link.name}
                   </Link>
                 ))}
+              </div>
+
+              {/* SPACER */}
+              <div className="flex-1" />
+
+              {/* CONTACT ICONS (NEW DESIGN) */}
+              <div className="px-12 pb-4">
+                <div className="flex justify-between items-center">
+
+                  {contactActions.map((action, i) => (
+                    <motion.a
+                      key={i}
+                      href={action.href}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.2 + i * 0.08 }}
+                      className={`w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-r ${action.color} text-white shadow-md active:scale-90 transition-transform`}
+                    >
+                      {action.icon}
+                    </motion.a>
+                  ))}
+
+                </div>
+              </div>
+
+              {/* FOOTER */}
+              <div className="px-6 py-4 border-t border-slate-100">
+                <p className="text-[10px] text-slate-300 text-center tracking-wider">
+                  LavaseccoSCM · P.IVA 01234567890
+                </p>
               </div>
             </motion.div>
           </>
