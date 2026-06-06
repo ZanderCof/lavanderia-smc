@@ -26,7 +26,7 @@ export default function Home() {
       >
 
         {/* BENTO */}
-        <div className="pb-12">
+        <div id="features-bento" className="pb-12">
           <FeaturesBento />
         </div>
 
@@ -35,7 +35,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch mb-6">
 
-            <div className="lg:col-span-1 flex">
+            <div id="business-hours" className="lg:col-span-1 flex">
               <BusinessHours />
             </div>
 
@@ -43,7 +43,7 @@ export default function Home() {
 
               <div className="space-y-6">
 
-                <div className="flex items-center gap-2 text-blue-600 font-bold uppercase tracking-widest text-[10px]">
+                <div id="map-pin" className="flex items-center gap-2 text-blue-600 font-bold uppercase tracking-widest text-[10px]">
                   <MapPin size={14} />
                   <span>Copertura Servizio</span>
                 </div>

@@ -61,7 +61,7 @@ export default function Navbar() {
         }`}
     >
       <nav
-        className={`mx-auto max-w-5xl transition-all duration-200 ease-out px-4 ${isScrolled
+        className={`mx-auto max-w-6xl transition-all duration-200 ease-out px-4 ${isScrolled
           ? "bg-white/45 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-lg shadow-black/5"
           : ""
           }`}
@@ -126,7 +126,7 @@ export default function Navbar() {
           </div>
 
           {/* STATUS */}
-          <div className="scale-90 origin-right shrink-0 whitespace-nowrap">
+          <div className="md:hidden scale-90 origin-right shrink-0 whitespace-nowrap">
             <OpenStatus />
           </div>
 
@@ -136,6 +136,12 @@ export default function Navbar() {
             className="md:hidden w-10 h-10 flex items-center justify-center rounded-full transition-all bg-white/10"
             aria-label="Apri menu"
           >
+
+            <div className="w-5 h-4 flex flex-col justify-between">
+              <span className="h-0.5 bg-slate-700 rounded" />
+              <span className="h-0.5 bg-slate-700 rounded" />
+              <span className="h-0.5 bg-slate-700 rounded" />
+            </div>
             <div className="w-5 h-4 flex flex-col justify-between">
               <span className="h-0.5 bg-slate-700 rounded" />
               <span className="h-0.5 bg-slate-700 rounded" />

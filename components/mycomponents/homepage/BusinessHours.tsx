@@ -1,4 +1,5 @@
 import OpenStatus from "@/components/ui/openStatus";
+import { OP_HOURS } from "@/components/ui/hoursTable";
 import { Clock, Sparkles } from "lucide-react";
 
 export function BusinessHours() {
@@ -33,15 +34,6 @@ export function BusinessHours() {
           "Venerdì",
           "Sabato",
         ].map((name, index) => {
-          const OP_HOURS = {
-            1: { open: "08:30", close: "19:30" },
-            2: { open: "08:30", close: "19:30" },
-            3: { open: "08:30", close: "19:30" },
-            4: { open: "08:30", close: "19:30" },
-            5: { open: "08:30", close: "19:30" },
-            6: { open: "08:30", close: "13:00" },
-            0: null,
-          };
 
           const hours = OP_HOURS[index as keyof typeof OP_HOURS];
           const now = new Date();
@@ -50,11 +42,10 @@ export function BusinessHours() {
           return (
             <div
               key={name}
-              className={`flex justify-between items-center py-2 px-3 rounded-xl transition-all ${
-                isToday
+              className={`flex justify-between items-center py-2 px-3 rounded-xl transition-all ${isToday
                   ? "bg-blue-50/70 border border-blue-100 text-blue-900 font-bold scale-[1.02]"
                   : "text-slate-600 font-medium text-sm"
-              }`}
+                }`}
             >
               <div className="flex items-center gap-2">
                 {name}

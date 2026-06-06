@@ -2,19 +2,20 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
+import { OP_HOURS } from "@/components/ui/hoursTable";
 
-const OP_HOURS = {
-  1: { open: "08:30", close: "19:30" },
-  2: { open: "08:30", close: "19:30" },
-  3: { open: "08:30", close: "19:30" },
-  4: { open: "08:30", close: "19:30" },
-  5: { open: "08:30", close: "19:30" },
-  6: { open: "08:30", close: "13:00" },
-  0: null,
-};
 
 export default function OpenStatus() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const scrollToHours = () => {
+    document
+      .getElementById("business-hours")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+  };
 
   useEffect(() => {
     const checkOpenStatus = () => {
@@ -50,7 +51,10 @@ export default function OpenStatus() {
       {isOpen ? (
         <motion.div
           key="open"
-          className="flex items-center gap-2 bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full border border-emerald-100 text-xs font-bold"
+          onClick={scrollToHours}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-2 bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full border border-emerald-700 text-xs font-bold cursor-pointer"
         >
           <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
           Aperto Ora
@@ -58,7 +62,10 @@ export default function OpenStatus() {
       ) : (
         <motion.div
           key="closed"
-          className="flex items-center gap-2 bg-rose-50 text-rose-700 px-2 py-1 rounded-full border border-rose-100 text-xs font-bold"
+          onClick={scrollToHours}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-2 bg-rose-50 text-rose-700 px-2 py-1 rounded-full border border-rose-100 text-xs font-bold cursor-pointer"
         >
           <span className="w-2 h-2 bg-rose-500 rounded-full" />
           Chiuso Ora
