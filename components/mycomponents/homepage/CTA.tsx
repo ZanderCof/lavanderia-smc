@@ -44,7 +44,7 @@ export function CtaSection() {
           </div>
 
           {/* Immagine */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end lg:pr-12">
             <div className="relative">
               <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full" />
 
