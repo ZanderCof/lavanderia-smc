@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, MessageCircle, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import OpenStatus from "@/components/ui/openStatus";
+import OpenStatus from "@/components/mycomponents/homepage/openStatus";
 import logo_lavanderia from "@/public/logo_lavanderia.png";
 import nome_navbar from "@/public/nome_navbar.png";
 

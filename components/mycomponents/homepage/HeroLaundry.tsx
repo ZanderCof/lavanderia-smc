@@ -56,12 +56,12 @@ export function HeroLaundry() {
 
   return (
     <section className="relative overflow-hidden px-6 pt-20 pb-14">      {/* glow soft */}
-      <div className="absolute top-[-200px] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-100/30 blur-[120px] rounded-full" />
+      <div className="absolute -top-50 left-1/2 -translate-x-1/2 w-150 h-150 bg-blue-100/30 blur-[120px] rounded-full" />
 
       <div
         ref={ref}
         onMouseMove={handleMouseMove}
-        className="relative z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-2 items-center"
+        className="relative select-none z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-2 items-center"
       >
 
         {/* LEFT */}
@@ -79,7 +79,7 @@ export function HeroLaundry() {
               Per I Tuoi{" "}
               <span className="text-blue-600 relative">
                 Capi
-                <span className="absolute -bottom-2 left-0 w-full h-[6px] bg-blue-100 rounded-full -z-10" />
+                <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-blue-100 rounded-full -z-10" />
               </span>
             </h1>
 
@@ -143,11 +143,11 @@ export function HeroLaundry() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="relative h-[520px] flex items-center justify-center"
+          className="relative h-130 flex items-center justify-center"
         >
 
           {/* glow centrale */}
-          <div className="absolute w-[260px] h-[260px] bg-blue-100/20 blur-3xl rounded-full" />
+          <div className="absolute w-65 h-65 bg-blue-100/20 blur-3xl rounded-full" />
 
           {/* camicia */}
           <motion.div

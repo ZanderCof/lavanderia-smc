@@ -2,10 +2,10 @@
 
 import { FeaturesBento } from "@/components/mycomponents/homepage/BentoGrid";
 import { BusinessHours } from "@/components/mycomponents/homepage/BusinessHours";
+import { CtaSection } from "@/components/mycomponents/homepage/CTA";
 import { HeroLaundry } from "@/components/mycomponents/homepage/HeroLaundry";
 import { LocaleMap } from "@/components/mycomponents/homepage/LocaleMap";
 import { Truck, MapPin, ShieldCheck } from "lucide-react";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -59,6 +59,7 @@ export default function Home() {
                   </span>{" "}
                   in tutta la zona.
                 </p>
+                
                 {/* 🚀 PREMIUM BANNER */}
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 p-5 shadow-lg shadow-blue-900/10">
 
@@ -143,48 +144,8 @@ export default function Home() {
 
         </section>
 
-        {/* CTA */}
-        <section className="max-w-7xl mx-auto px-6 py-10 text-center">
-
-          <div className="bg-slate-900 rounded-[3rem] p-12 lg:p-10 text-white relative overflow-hidden">
-
-            <div className="relative z-10">
-              <h2 className="text-4xl lg:text-5xl font-bold mb-10">
-                Pronto a far splendere i tuoi capi?
-              </h2>
-
-              <div className="flex flex-col lg:flex-row items-center justify-center gap-15 max-w-4xl mx-auto">
-
-                {/* Immagine */}
-                <div className="flex-shrink-0">
-                  <Image
-                    src="/Roberta_Vetrina.png"
-                    alt="Roberta"
-                    width={450}
-                    height={750}
-                    className="rounded-3xl object-cover" 
-                  />
-                </div>
-
-                {/* Testo + bottone */}
-                <div className="text-center lg:text-center pb-6">
-                  <p className="text-slate-400 text-lg mb-6 pb-6">
-                    Un servizio premium per ogni tessuto.
-                  </p>
-
-                  <button className="bg-blue-600 hover:bg-blue-700 px-25 py-3 rounded-full font-bold text-lg transition-transform hover:scale-105">
-                    Inizia Ora
-                  </button>
-                </div>
-
-              </div>
-            </div>
-
-            <div className="absolute top-0 right-0 w-64 h-auto bg-blue-500/20 blur-[100px]" />
-
-          </div>
-
-        </section>
+        {/* CTA RICHIAMATA QUI 🚀 */}
+        <CtaSection />
 
       </div>
     </div>

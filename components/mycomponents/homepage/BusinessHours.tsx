@@ -1,6 +1,6 @@
-import OpenStatus from "@/components/ui/openStatus";
-import { OP_HOURS } from "@/components/ui/hoursTable";
+import OpenStatus from "@/components/mycomponents/homepage/openStatus";
 import { Clock, Sparkles } from "lucide-react";
+import { OP_HOURS } from "./hoursTable";
 
 export function BusinessHours() {
   return (
