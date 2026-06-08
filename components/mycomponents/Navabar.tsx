@@ -100,7 +100,7 @@ export default function Navbar() {
                 />
               </div>
 
-              <span className="text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1 pl-0.5">
+              <span className="self-end text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1 pl-0.5">
                 Dal 1995 · Senago
               </span>
             </div>
