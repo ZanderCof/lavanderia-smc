@@ -57,7 +57,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${isScrolled ? "pt-3 pb-0" : "pt-6 pb-0"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${isScrolled
+        ? "pt-3 pb-0"
+        : "pt-6 pb-0"
         }`}
     >
       <nav
@@ -89,18 +91,18 @@ export default function Navbar() {
 
             {/* TESTO LOGO */}
             <div className="flex flex-col justify-center min-w-0 leading-none">
-              <div className="relative min-w-10 sm:w-47.5 h-8.5">
+              <div className="relative min-w-11 sm:w-50 h-9">
                 <Image
                   src={nome_navbar}
                   alt="Lavasecco SCM"
                   fill
                   priority
                   className="object-contain object-left"
-                  sizes="(max-width: 640px) 165px, 190px"
+                  sizes="(max-width: 640px) 175px, 200px"
                 />
               </div>
 
-              <span className="self-end text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-1 pl-0.5">
+              <span className="self-end text-[8px] sm:text-[9px] font-semibold tracking-[0.2em] text-slate-400 uppercase mt-0.5 pl-0.5">
                 Dal 1995 · Senago
               </span>
             </div>

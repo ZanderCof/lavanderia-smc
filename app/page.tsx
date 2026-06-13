@@ -9,21 +9,13 @@ import { Truck, MapPin, ShieldCheck } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="origin-top">
 
       {/* HERO = FULL SIZE */}
       <HeroLaundry />
 
       {/* RESTO = SOFT RESPONSIVE SCALE WRAPPER */}
-      <div
-        className="
-          origin-top
-          md:scale-[0.95]
-          lg:scale-[0.88]
-          xl:scale-[0.85]
-          2xl:scale-[0.9]
-        "
-      >
+      <div className=" origin-top ">
 
         {/* BENTO */}
         <div id="features-bento" className="pb-12">
@@ -59,7 +51,7 @@ export default function Home() {
                   </span>{" "}
                   in tutta la zona.
                 </p>
-                
+
                 {/* 🚀 PREMIUM BANNER */}
                 <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 p-5 shadow-lg shadow-blue-900/10">
 

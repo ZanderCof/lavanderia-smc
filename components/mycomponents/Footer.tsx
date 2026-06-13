@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, ArrowRight, FileText } from "lucide-react";
+import { Mail, MapPin, Phone, ArrowRight, FileText, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import logo_lavanderia from "@/public/logo_lavanderia.png";
@@ -40,7 +40,7 @@ export default function Footer() {
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100/40 rounded-full blur-[120px] -z-10 -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-cyan-100/30 rounded-full blur-[100px] -z-10 translate-y-1/2 translate-x-1/2" />
 
-      <div className="container mx-auto px-6 max-w-7xl pt-16 pb-8">
+      <div className="container mx-auto px-6 max-w-7xl pt-2 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
 
           {/* LOGO & INFO */}
@@ -67,12 +67,12 @@ export default function Footer() {
 
             </Link>
             <p className="text-slate-500 max-w-sm leading-relaxed text-sm">
-              Diamo nuova vita ai tuoi capi con tecnologie all&apos;avanguardia e prodotti ecologici.
+              Diamo nuova vita ai tuoi capi con tecnologie all&apos;avanguardia e prodotti ecologici.<br />
               Fiducia e freschezza, direttamente a casa tua.
             </p>
 
             {/* CONTATTI RAPIDI */}
-            <div className="space-y-3">
+            <div className="space-y-3 pt-2">
               <div className="flex items-center gap-3 text-sm text-slate-600">
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-100">
                   <Phone size={14} className="text-blue-500" />
@@ -130,6 +130,11 @@ export default function Footer() {
 
           {/* EMAIL & CREDIT STARTINGLINE */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
+            <Link href="https://wa.me/390299050084" className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors">
+              <MessageCircle size={14} />
+              WhatsApp
+            </Link>
+
             <Link href="mailto:info@lavanderiascm.it" className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors">
               <Mail size={14} />
               info@lavanderiascm.it
@@ -137,13 +142,16 @@ export default function Footer() {
 
             {/* BADGE CREDITI STARTINGLINE */}
             <Link
-              href="vercel.app"
+              href="https://vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-slate-400 hover:text-slate-600 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200/50 transition-all active:scale-95"
+              className="ml-auto flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-slate-400 hover:text-slate-600 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200/50 transition-all active:scale-95"
             >
               <span>Made by</span>
-              <span className="text-slate-800 font-black">StartingLine</span>
+              <span className="font-black">
+                <span className="text-blue-600">Starting</span>
+                <span className="text-slate-800">Line</span>
+              </span>
             </Link>
           </div>
         </div>
