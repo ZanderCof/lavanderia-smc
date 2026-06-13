@@ -1,5 +1,23 @@
 import { Shirt, Sparkles, Truck, WashingMachine } from "lucide-react";
 
+export type HeroBubbleColor =
+  | "blue"
+  | "white"
+  | "premium";
+
+export type HeroBubble = {
+  label: string;
+  color: HeroBubbleColor;
+};
+
+export const HERO_BUBBLES: readonly HeroBubble[] = [
+  { label: "Igienizzazione", color: "blue" },
+  { label: "Piumoni", color: "white" },
+  { label: "Tappeti", color: "blue" },
+  { label: "Pelle", color: "white" },
+  { label: "Abiti da Cerimonia", color: "premium" },
+];
+
 export const HERO_FEATURES = [
   {
     icon: Sparkles,
@@ -19,14 +37,6 @@ export const HERO_FEATURES = [
     iconColor: "text-blue-600",
     text: "Servizio rapido e affidabile",
   },
-];
-
-export const HERO_BUBBLES = [
-  { label: "Igienizzazione", color: "blue" },
-  { label: "Piumoni", color: "white" },
-  { label: "Tappeti", color: "blue" },
-  { label: "Pelle", color: "white" },
-  { label: "Abiti da Cerimonia", color: "premium" },
 ];
 
 export const HOMEPAGE_FEATURES = [

@@ -1,13 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import camicia from "@/public/camicia_volante.png";
-import Link from "next/link";
-import { useRef, useEffect, useState } from "react";
-import { HERO_BUBBLES } from "@/lib/constants/homepage";
-import { HERO_FEATURES } from "@/lib/constants/homepage";
+import { useMotionValue, useTransform } from "framer-motion";
+import { useAnimationFrame } from "framer-motion";
+import { useRef } from "react";
+import HeroContent from "./hero/HeroContent";
+import HeroOrbit from "./hero/HeroOrbit";
+
 
 export function HeroLaundry() {
   const ref = useRef<HTMLDivElement>(null);
@@ -29,22 +27,11 @@ export function HeroLaundry() {
     y.set(offsetY);
   }
 
-  const [angle, setAngle] = useState(0);
+  const angle = useMotionValue(0);
 
-  useEffect(() => {
-    let frame: number;
-
-    const animate = () => {
-      setAngle((prev) => prev + 0.40); // Controllo velocità orbitale
-      frame = requestAnimationFrame(animate);
-    };
-
-    frame = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  const radiusX = 220;
-  const radiusY = 90;
+  useAnimationFrame((_, delta) => {
+    angle.set(angle.get() + delta * 0.025);
+  });
 
   return (
     <section className="relative overflow-hidden px-6 pt-20 pb-14">      {/* glow soft */}
@@ -57,150 +44,15 @@ export function HeroLaundry() {
       >
 
         {/* LEFT */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-          className="space-y-7 max-w-xl lg:mx-16 lg:pl-10 pt-8"
-        >
-
-          {/* TITLE */}
-          <div className="space-y-4">
-            <h1 className="text-5xl lg:text-[64px] font-black leading-[0.92] tracking-tight text-slate-900">
-              Cura Perfetta <br />
-              Per I Tuoi{" "}
-              <span className="text-blue-600 relative">
-                Capi
-                <span className="absolute -bottom-2 left-0 w-full h-1.5 bg-blue-100 rounded-full -z-10" />
-              </span>
-            </h1>
-
-            <p className="text-lg text-slate-500 leading-relaxed max-w-lg">
-              Lavaggio professionale di capi delicati, abiti da cerimonia,
-              piumoni e tessuti tecnici con cura artigianale premium.
-            </p>
-          </div>
-
-          {/* FEATURES */}
-          <div className="flex flex-col gap-3 pt-1">
-            {HERO_FEATURES.map((feature) => {
-              const Icon = feature.icon;
-
-              return (
-                <div
-                  key={feature.text}
-                  className="flex items-center gap-3 text-slate-700"
-                >
-                  <div
-                    className={`w-10 h-10 rounded-2xl flex items-center justify-center ${feature.iconBg}`}
-                  >
-                    <Icon
-                      className={`w-4.5 h-4.5 ${feature.iconColor}`}
-                    />
-                  </div>
-
-                  <span className="font-medium text-[15px]">
-                    {feature.text}
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* BUTTONS */}
-          <div className="flex flex-wrap gap-4 pt-4">
-            <Link href="tel:+390299050084">
-              <Button className="h-12 px-7 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg hover:scale-105 transition-all">
-                Prenota Ora
-              </Button>
-            </Link>
-
-            <Link href="/servizi">
-              <Button
-                variant="outline"
-                className="h-12 px-7 rounded-full border-slate-300 text-slate-700 hover:bg-slate-100 font-semibold"
-              >
-                Scopri i Servizi
-              </Button>
-            </Link>
-          </div>
-        </motion.div>
+        <HeroContent />
 
         {/* RIGHT — ORBIT "SOFT LUXURY MODE" */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="relative h-130 flex items-center justify-center"
-        >
+        <HeroOrbit
+          rotateX={rotateX}
+          rotateY={rotateY}
+          angle={angle}
+        />
 
-          {/* glow centrale */}
-          <div className="absolute w-65 h-65 bg-blue-100/20 blur-3xl rounded-full" />
-
-          {/* camicia */}
-          <motion.div
-            style={{
-              rotateX,
-              rotateY,
-              transformPerspective: 1000,
-            }}
-            animate={{ y: [0, -8, 0] }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="relative z-20 w-full h-full"
-          >
-            <Image
-              src={camicia}
-              alt="Lavanderia Professionale"
-              fill
-              priority
-              className="object-contain drop-shadow-[0_25px_35px_rgba(15,23,42,0.15)]"
-            />
-          </motion.div>
-
-          {/* ORBIT — meno elementi visibili (mobile safe) */}
-          {HERO_BUBBLES.map((b, i) => {
-            const offset = (360 / HERO_BUBBLES.length) * i;
-            const rad = ((angle + offset) * Math.PI) / 180;
-
-            const xPos = Math.cos(rad) * radiusX;
-            const yPos = Math.sin(rad) * radiusY;
-
-            const depth = Math.sin(rad);
-            const isBack = depth < 0;
-
-            return (
-              <motion.div
-                key={b.label}
-                className={`absolute px-3 py-1.5 rounded-full text-xs font-semibold border shadow-md ${b.color === "blue"
-                  ? "bg-blue-50 text-blue-700 border-blue-100"
-                  : b.color === "premium"
-                    ? "bg-white text-slate-900 border-slate-200 font-bold"
-                    : "bg-white text-slate-700 border-slate-100"
-                  }`}
-                animate={{
-                  x: xPos,
-                  y: yPos,
-                  scale: isBack ? 0.85 : b.color === "premium" ? 1.05 : 1,
-                }}
-                style={{
-                  zIndex: isBack ? 5 : 30,
-                  opacity: isBack ? 0.45 : 1,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 40,
-                  damping: 18,
-                }}
-              >
-                {b.label}
-              </motion.div>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
   );
