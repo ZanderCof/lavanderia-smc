@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { OP_HOURS } from "./hoursTable";
+import { OP_HOURS } from "@/lib/constants/business-hours";
 
 
 export default function OpenStatus() {

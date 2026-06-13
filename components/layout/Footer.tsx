@@ -1,5 +1,3 @@
-"use client";
-
 import { Mail, MapPin, Phone, ArrowRight, FileText, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -40,8 +38,8 @@ export default function Footer() {
       <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100/40 rounded-full blur-[120px] -z-10 -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-cyan-100/30 rounded-full blur-[100px] -z-10 translate-y-1/2 translate-x-1/2" />
 
-      <div className="container mx-auto px-6 max-w-7xl pt-2 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+      <div className="container mx-auto px-6 max-w-7xl pt-8 pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-4">
 
           {/* LOGO & INFO */}
           <div className="lg:col-span-2 space-y-6">

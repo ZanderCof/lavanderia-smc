@@ -2,12 +2,12 @@
 
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Sparkles, Shirt, Truck } from "lucide-react";
 import Image from "next/image";
 import camicia from "@/public/camicia_volante.png";
 import Link from "next/link";
 import { useRef, useEffect, useState } from "react";
+import { HERO_BUBBLES } from "@/lib/constants/homepage";
+import { HERO_FEATURES } from "@/lib/constants/homepage";
 
 export function HeroLaundry() {
   const ref = useRef<HTMLDivElement>(null);
@@ -42,14 +42,6 @@ export function HeroLaundry() {
     frame = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frame);
   }, []);
-
-  const bubbles = [
-    { label: "Igienizzazione", color: "blue" },
-    { label: "Piumoni", color: "white" },
-    { label: "Tappeti", color: "blue" },
-    { label: "Pelle", color: "white" },
-    { label: "Abiti da Cerimonia", color: "premium" },
-  ];
 
   const radiusX = 220;
   const radiusY = 90;
@@ -91,32 +83,28 @@ export function HeroLaundry() {
 
           {/* FEATURES */}
           <div className="flex flex-col gap-3 pt-1">
-            <div className="flex items-center gap-3 text-slate-700">
-              <div className="w-10 h-10 rounded-2xl bg-blue-100 flex items-center justify-center">
-                <Sparkles className="w-4.5 h-4.5 text-blue-600" />
-              </div>
-              <span className="font-medium text-[15px]">
-                Trattamenti igienizzanti premium
-              </span>
-            </div>
+            {HERO_FEATURES.map((feature) => {
+              const Icon = feature.icon;
 
-            <div className="flex items-center gap-3 text-slate-700">
-              <div className="w-10 h-10 rounded-2xl bg-slate-100 flex items-center justify-center">
-                <Shirt className="w-4.5 h-4.5 text-slate-700" />
-              </div>
-              <span className="font-medium text-[15px]">
-                Cura specifica per ogni tessuto
-              </span>
-            </div>
+              return (
+                <div
+                  key={feature.text}
+                  className="flex items-center gap-3 text-slate-700"
+                >
+                  <div
+                    className={`w-10 h-10 rounded-2xl flex items-center justify-center ${feature.iconBg}`}
+                  >
+                    <Icon
+                      className={`w-4.5 h-4.5 ${feature.iconColor}`}
+                    />
+                  </div>
 
-            <div className="flex items-center gap-3 text-slate-700">
-              <div className="w-10 h-10 rounded-2xl bg-blue-100 flex items-center justify-center">
-                <Truck className="w-4.5 h-4.5 text-blue-600" />
-              </div>
-              <span className="font-medium text-[15px]">
-                Servizio rapido e affidabile
-              </span>
-            </div>
+                  <span className="font-medium text-[15px]">
+                    {feature.text}
+                  </span>
+                </div>
+              );
+            })}
           </div>
 
           {/* BUTTONS */}
@@ -174,8 +162,8 @@ export function HeroLaundry() {
           </motion.div>
 
           {/* ORBIT — meno elementi visibili (mobile safe) */}
-          {bubbles.map((b, i) => {
-            const offset = (360 / bubbles.length) * i;
+          {HERO_BUBBLES.map((b, i) => {
+            const offset = (360 / HERO_BUBBLES.length) * i;
             const rad = ((angle + offset) * Math.PI) / 180;
 
             const xPos = Math.cos(rad) * radiusX;

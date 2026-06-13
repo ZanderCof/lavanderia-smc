@@ -2,17 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Phone, MessageCircle, Mail } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import OpenStatus from "@/components/mycomponents/homepage/openStatus";
+import OpenStatus from "@/components/ui/OpenStatus";
 import logo_lavanderia from "@/public/logo_lavanderia.png";
 import nome_navbar from "@/public/nome_navbar.png";
+import { NAVBAR_LINKS } from "@/lib/constants/navigation";
+import { CONTACT_ACTIONS } from "@/lib/constants/contacts";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -22,38 +22,11 @@ export default function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
+    return () => {
+      document.body.style.overflow = "unset";
+    };
   }, [isMobileMenuOpen]);
-
-  const navLinks = [
-    { name: "Chi Siamo", href: "/chi-siamo" },
-    { name: "Servizi", href: "/servizi" },
-    { name: "Listino Prezzi", href: "/prezzi" },
-    { name: "Abiti da Cerimonia", href: "/cerimonia" },
-  ];
-
-  const contactActions = [
-    {
-      icon: <Phone size={18} />,
-      href: "tel:+390299050084",
-      label: "Chiama",
-      color: "from-blue-500 to-blue-700",
-      ring: "ring-blue-400/30",
-    },
-    {
-      icon: <MessageCircle size={18} />,
-      href: "https://wa.me/390299050084",
-      label: "WhatsApp",
-      color: "from-emerald-400 to-emerald-600",
-      ring: "ring-emerald-400/30",
-    },
-    {
-      icon: <Mail size={18} />,
-      href: "mailto:info@lavanderiascm.it",
-      label: "Email",
-      color: "from-slate-600 to-slate-800",
-      ring: "ring-slate-400/20",
-    },
-  ];
+  
 
   return (
     <header
@@ -114,12 +87,10 @@ export default function Navbar() {
 
           {/* DESKTOP NAV */}
           <div className="hidden md:flex items-center">
-            {navLinks.map((link) => (
+            {NAVBAR_LINKS.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                onMouseEnter={() => setActiveLink(link.name)}
-                onMouseLeave={() => setActiveLink(null)}
                 className={`relative px-4 py-1.5 text-[13px] font-semibold transition-colors rounded-lg  "text-slate-600 hover:text-slate-900"`}
               >
                 <span className="relative z-10">{link.name}</span>
@@ -139,11 +110,6 @@ export default function Navbar() {
             aria-label="Apri menu"
           >
 
-            <div className="w-5 h-4 flex flex-col justify-between">
-              <span className="h-0.5 bg-slate-700 rounded" />
-              <span className="h-0.5 bg-slate-700 rounded" />
-              <span className="h-0.5 bg-slate-700 rounded" />
-            </div>
             <div className="w-5 h-4 flex flex-col justify-between">
               <span className="h-0.5 bg-slate-700 rounded" />
               <span className="h-0.5 bg-slate-700 rounded" />
@@ -191,7 +157,7 @@ export default function Navbar() {
 
               {/* NAV LINKS */}
               <div className="p-4 flex flex-col gap-2">
-                {navLinks.map((link) => (
+                {NAVBAR_LINKS.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
@@ -210,18 +176,22 @@ export default function Navbar() {
               <div className="px-12 pb-4">
                 <div className="flex justify-between items-center">
 
-                  {contactActions.map((action, i) => (
-                    <motion.a
-                      key={i}
-                      href={action.href}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: 0.2 + i * 0.08 }}
-                      className={`w-12 h-12 flex items-center justify-center rounded-full bg-gradient-to-r ${action.color} text-white shadow-md active:scale-90 transition-transform`}
-                    >
-                      {action.icon}
-                    </motion.a>
-                  ))}
+                  {CONTACT_ACTIONS.map((action, i) => {
+                    const Icon = action.icon;
+
+                    return (
+                      <motion.a
+                        key={action.label}
+                        href={action.href}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.2 + i * 0.08 }}
+                        className={`w-12 h-12 flex items-center justify-center rounded-full bg-linear-to-r ${action.color} text-white shadow-md active:scale-90 transition-transform`}
+                      >
+                        <Icon size={18} />
+                      </motion.a>
+                    );
+                  })}
 
                 </div>
               </div>

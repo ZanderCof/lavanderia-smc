@@ -1,6 +1,6 @@
-import OpenStatus from "@/components/mycomponents/homepage/openStatus";
+import OpenStatus from "@/components/ui/OpenStatus";
 import { Clock, Sparkles } from "lucide-react";
-import { OP_HOURS } from "./hoursTable";
+import { OP_HOURS, WEEK_DAYS } from "@/lib/constants/business-hours";
 
 export function BusinessHours() {
   return (
@@ -25,15 +25,7 @@ export function BusinessHours() {
 
       {/* LISTA GIORNI DELLA SETTIMANA */}
       <div className="space-y-3">
-        {[
-          "Domenica",
-          "Lunedì",
-          "Martedì",
-          "Mercoledì",
-          "Giovedì",
-          "Venerdì",
-          "Sabato",
-        ].map((name, index) => {
+        {WEEK_DAYS.map((name, index) => {
 
           const hours = OP_HOURS[index as keyof typeof OP_HOURS];
           const now = new Date();
