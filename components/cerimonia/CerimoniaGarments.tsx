@@ -14,7 +14,7 @@ export function CerimoniaGarments() {
   return (
     <section className="border-y border-slate-100 bg-slate-50/50">
       <div className="max-w-4xl mx-auto px-6 py-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-slate-200">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-px bg-slate-200">
           {garments.map((g, i) => (
             <motion.div
               key={i}

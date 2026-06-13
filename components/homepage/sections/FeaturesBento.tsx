@@ -7,7 +7,7 @@ export function FeaturesBento() {
   return (
     <section className="py-12 md:py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
           {HOMEPAGE_FEATURES.map((f) => {
             const Icon = f.icon;
 

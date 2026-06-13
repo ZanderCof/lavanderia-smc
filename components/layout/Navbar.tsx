@@ -26,7 +26,7 @@ export default function Navbar() {
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
-  
+
 
   return (
     <header
@@ -81,12 +81,12 @@ export default function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden md:flex lg:flex items-center">
+          <div className="hidden lg:flex items-center">
             <OpenStatus />
           </div>
 
           {/* DESKTOP NAV */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden lg:flex items-center">
             {NAVBAR_LINKS.map((link) => (
               <Link
                 key={link.name}
@@ -99,14 +99,14 @@ export default function Navbar() {
           </div>
 
           {/* STATUS */}
-          <div className="md:hidden scale-90 origin-right shrink-0 whitespace-nowrap">
+          <div className="lg:hidden scale-90 origin-right shrink-0 whitespace-nowrap">
             <OpenStatus />
           </div>
 
           {/* MOBILE BUTTON */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden w-10 h-10 flex items-center justify-center rounded-full transition-all bg-white/10"
+            className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full transition-all bg-white/10"
             aria-label="Apri menu"
           >
 

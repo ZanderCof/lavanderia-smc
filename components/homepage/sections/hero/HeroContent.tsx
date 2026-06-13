@@ -11,7 +11,7 @@ export default function HeroContent() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="space-y-7 max-w-xl lg:mx-16 lg:pl-10 pt-8"
+            className="space-y-7 max-w-xl mx-auto text-center lg:text-left lg:mx-16 lg:pl-10 pt-8"
         >
 
             {/* TITLE */}
@@ -32,14 +32,14 @@ export default function HeroContent() {
             </div>
 
             {/* FEATURES */}
-            <div className="flex flex-col gap-3 pt-1">
+            <div className="flex flex-col gap-3 pt-1 max-w-max mx-auto lg:mx-0">
                 {HERO_FEATURES.map((feature) => {
                     const Icon = feature.icon;
 
                     return (
                         <div
                             key={feature.text}
-                            className="flex items-center gap-3 text-slate-700"
+                            className="flex items-center gap-3 text-slate-700 "
                         >
                             <div
                                 className={`w-10 h-10 rounded-2xl flex items-center justify-center ${feature.iconBg}`}
@@ -58,7 +58,7 @@ export default function HeroContent() {
             </div>
 
             {/* BUTTONS */}
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
                 <Link href="tel:+390299050084">
                     <Button className="h-12 px-7 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-semibold shadow-lg hover:scale-105 transition-all">
                         Prenota Ora

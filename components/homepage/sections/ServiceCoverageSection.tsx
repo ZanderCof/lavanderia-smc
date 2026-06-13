@@ -2,7 +2,7 @@ import { MapPin, ShieldCheck, Truck } from "lucide-react";
 import { BusinessHours } from "./BusinessHours";
 import { LocaleMap } from "./LocaleMap";
 
-export function Delivery() {
+export function ServiceCoverageSection() {
   return (
 
         <section className="max-w-7xl mx-auto px-6 pb-24">

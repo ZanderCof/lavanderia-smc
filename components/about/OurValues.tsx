@@ -32,7 +32,7 @@ export function OurValues() {
           <h2 className="text-3xl font-black text-slate-900 tracking-tight">Cosa ci guida ogni giorno</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
           {values.map((v, i) => (
             <motion.div
               key={i}

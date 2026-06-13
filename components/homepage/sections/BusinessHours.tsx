@@ -4,7 +4,7 @@ import { OP_HOURS, WEEK_DAYS } from "@/lib/constants/business-hours";
 
 export function BusinessHours() {
   return (
-    <div className="bg-white/60 backdrop-blur-xl border border-white/40 rounded-[2.5rem] p-8 shadow-xl shadow-blue-900/5 max-w-md w-full">
+    <div className=" bg-white/60 backdrop-blur-xl border border-white/40 rounded-[2.5rem] p-8 shadow-xl shadow-blue-900/5 max-w-md w-full mx-auto lg:mx-0 mb-10 lg:mb-0">
 
       {/* HEADER */}
       <div className="flex justify-between items-start mb-6">
