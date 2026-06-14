@@ -34,7 +34,7 @@ export function LocaleMap() {
 
   return (
     <section className="border-y border-slate-100">
-      <div className="max-w-4xl mx-auto px-6 py-24">
+      <div className="max-w-4xl mx-auto px-6 py-24 lg:py-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

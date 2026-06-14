@@ -22,9 +22,6 @@ export default function HeroContent() {
 
             {/* FEATURES */}
             <HeroFunctions />
-
-            {/* BUTTONS */}
-            <HeroButtons />
             
         </motion.div>)
 }

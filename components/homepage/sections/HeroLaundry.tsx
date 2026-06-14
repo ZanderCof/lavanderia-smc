@@ -76,9 +76,6 @@ export function HeroLaundry() {
           {/* FEATURES */}
           <HeroFunctions />
 
-          {/* BUTTONS */}
-          <HeroButtons />
-
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@ import { HERO_FEATURES } from "@/lib/constants/homepage";
 
 export default function HeroFunctions() {
     return (
-        <div className="flex flex-col gap-3 pt-1 max-w-max mx-auto lg:mx-0">
+        <div className="flex flex-col gap-3 pt-1 max-w-lg mx-auto lg:mx-0">
             {HERO_FEATURES.map((feature) => {
                 const Icon = feature.icon;
 

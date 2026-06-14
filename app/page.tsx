@@ -4,6 +4,7 @@ import { FeaturesBento } from "@/components/homepage/sections/FeaturesBento";
 import { CtaSection } from "@/components/homepage/sections/CtaSection";
 import { HeroLaundry } from "@/components/homepage/sections/HeroLaundry";
 import { ServiceCoverageSection } from "@/components/homepage/sections/ServiceCoverageSection";
+import Prezzi from "@/components/homepage/sections/Prezzi";
 
 export default function Home() {
   return (
@@ -15,13 +16,11 @@ export default function Home() {
       {/* RESTO = SOFT RESPONSIVE SCALE WRAPPER */}
       <div className=" origin-top ">
 
-        {/* BENTO */}
-        <div id="features-bento" className="pb-12">
-          <FeaturesBento />
-        </div>
-
         {/* SECTION GRID */}
         <ServiceCoverageSection />
+
+        {/* PREZZI */}
+        <Prezzi />
 
         {/* CTA RICHIAMATA QUI 🚀 */}
         <CtaSection />

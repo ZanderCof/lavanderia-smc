@@ -30,12 +30,12 @@ export const CONTACT_ACTIONS = [
     label: "WhatsApp",
     color: "from-emerald-400 to-emerald-600",
   },
-  {
-    icon: Mail,
+  /*{
+    *icon: Mail,
     href: EMAIL_HREF,
     label: "Email",
     color: "from-slate-600 to-slate-800",
-  },
+  },*/
 ];
 
 export const CONTACT_INFO_ICONS = {

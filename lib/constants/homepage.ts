@@ -1,4 +1,4 @@
-import { Shirt, Sparkles, Truck, WashingMachine } from "lucide-react";
+import { Shirt, Sparkles, Truck, Gem, WashingMachine } from "lucide-react";
 
 export type HeroBubbleColor =
   | "blue"
@@ -36,6 +36,12 @@ export const HERO_FEATURES = [
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
     text: "Servizio rapido e affidabile",
+  },
+  {
+    icon: Gem,
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
+    text: "Specialisti negli Abiti da Cerimonia",
   },
 ];
 

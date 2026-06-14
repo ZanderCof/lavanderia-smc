@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function CtaSection() {
   return (
-    <section className="max-w-5xl mx-auto px-6 py-20 ">
+    <section className="max-w-5xl mx-auto px-6 pt-6 pb-20 ">
       <div className="relative overflow-hidden rounded-[40px] bg-slate-900 text-white ">
         
         {/* Glow effects */}
