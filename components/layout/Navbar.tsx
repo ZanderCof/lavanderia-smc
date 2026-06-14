@@ -32,11 +32,11 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${isScrolled
         ? "pt-3 pb-0"
-        : "pt-6 pb-0"
+        : "pt-5 pb-0"
         }`}
     >
       <nav
-        className={`mx-auto max-w-6xl transition-all duration-200 ease-out px-4 ${isScrolled
+        className={`mx-auto max-w-7xl transition-all duration-200 ease-out px-4 ${isScrolled
           ? "bg-white/45 backdrop-blur-xl backdrop-saturate-150 rounded-full shadow-lg shadow-black/5"
           : ""
           }`}
@@ -64,7 +64,7 @@ export default function Navbar() {
 
             {/* TESTO LOGO */}
             <div className="flex flex-col justify-center min-w-0 leading-none">
-              <div className="relative min-w-11 sm:w-50 h-9">
+              <div className="relative min-w-11 sm:w-60 h-9">
                 <Image
                   src={nome_navbar}
                   alt="Lavasecco SCM"

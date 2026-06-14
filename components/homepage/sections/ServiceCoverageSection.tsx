@@ -26,7 +26,7 @@ export function ServiceCoverageSection() {
                   Siamo a Senago, <br />ma veniamo anche da te.
                 </h3>
 
-                <p className="text-slate-500 max-w-xl leading-relaxed font-medium">
+                <p className="text-slate-500 max-w-max leading-relaxed font-medium pb-8">
                   Puoi portarci i tuoi capi in negozio oppure attivare il{" "}
                   <span className="text-blue-600 font-bold">
                     Servizio a Domicilio
@@ -35,14 +35,14 @@ export function ServiceCoverageSection() {
                 </p>
 
                 {/* 🚀 PREMIUM BANNER */}
-                <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 p-5 shadow-lg shadow-blue-900/10">
+                <div className="relative overflow-hidden rounded-3xl bg-linear-to-r from-blue-600 via-sky-500 to-cyan-400 p-5 shadow-lg shadow-blue-900/10 ">
 
                   <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-3xl" />
                   <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
 
                   <div className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 items-center">
                       <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white border border-white/20">
                         <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
                         Servizio Premium
@@ -77,9 +77,9 @@ export function ServiceCoverageSection() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8 pt-6 border-t border-slate-100">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-slate-100">
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start justify-center gap-3 ">
                   <div className="p-2 bg-blue-50 text-blue-600 rounded-xl">
                     <Truck size={18} />
                   </div>
@@ -93,7 +93,7 @@ export function ServiceCoverageSection() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
+                <div className="flex items-start justify-center gap-3">
                   <div className="p-2 bg-emerald-50 text-emerald-600 rounded-xl">
                     <ShieldCheck size={18} />
                   </div>

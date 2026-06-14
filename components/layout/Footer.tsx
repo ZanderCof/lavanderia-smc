@@ -54,7 +54,7 @@ export default function Footer() {
                 />
               </div>
 
-              <div className="relative w-[180px] h-8">
+              <div className="relative w-60 h-8">
                 <Image
                   src={nome_navbar}
                   fill
