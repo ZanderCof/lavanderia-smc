@@ -1,7 +1,7 @@
 export default function HeroTitle() {
     return (
-        <div className="space-y-4 pt-15">
-            <h1 className="text-5xl lg:text-[64px] font-black leading-[0.92] tracking-tight text-slate-900 pb-8">
+        <div className="space-y-4 pt-15 lg:pt-0">
+            <h1 className="text-5xl lg:text-[64px] font-black leading-[0.92] tracking-tight text-slate-900 pb-8 lg:pb-0">
                 Cura Perfetta <br />
                 Per I Tuoi{" "}
                 <span className="text-blue-600 relative">
