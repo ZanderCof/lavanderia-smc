@@ -15,7 +15,7 @@ export const HERO_BUBBLES: readonly HeroBubble[] = [
   { label: "Piumoni", color: "white" },
   { label: "Tappeti", color: "blue" },
   { label: "Pelle", color: "white" },
-  { label: "Abiti da Cerimonia", color: "premium" },
+  { label: "Abiti da Cerimonia", color: "premium"},
 ];
 
 export const HERO_FEATURES = [

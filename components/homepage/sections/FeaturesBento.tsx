@@ -5,9 +5,9 @@ import { HOMEPAGE_FEATURES } from "@/lib/constants/homepage";
 
 export function FeaturesBento() {
   return (
-    <section className="py-12 md:py-24 px-4 md:px-6">
+    <section className="sx:hidden py-12 sx:py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {HOMEPAGE_FEATURES.map((f, i) => {
             const Icon = f.icon;
 

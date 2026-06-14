@@ -5,6 +5,9 @@ import { useAnimationFrame } from "framer-motion";
 import { useRef } from "react";
 import HeroContent from "./hero/HeroContent";
 import HeroOrbit from "./hero/HeroOrbit";
+import HeroTitle from "./hero/HeroTitle";
+import HeroFunctions from "./hero/HeroFunctions";
+import HeroButtons from "./hero/HeroButtons";
 
 
 export function HeroLaundry() {
@@ -40,19 +43,43 @@ export function HeroLaundry() {
       <div
         ref={ref}
         onMouseMove={handleMouseMove}
-        className="relative select-none z-10 max-w-7xl mx-auto grid lg:grid-cols-2 gap-2 items-center"
+        className="relative select-none z-10 max-w-7xl mx-auto grid gap-2 items-center"
       >
 
-        {/* LEFT */}
-        <HeroContent />
+        {/* DESKTOP */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-2 items-center text-center lg:pt-8">
+          {/* LEFT */}
+          <HeroContent />
 
-        {/* RIGHT — ORBIT "SOFT LUXURY MODE" */}
-        <HeroOrbit
-          rotateX={rotateX}
-          rotateY={rotateY}
-          angle={angle}
-        />
+          {/* RIGHT — ORBIT "SOFT LUXURY MODE" */}
+          <HeroOrbit
+            rotateX={rotateX}
+            rotateY={rotateY}
+            angle={angle}
+          />
+        </div>
 
+        {/* MOBILE / TABLET */}
+        <div className="lg:hidden">
+          {/* TITLE */}
+          <div className=" items-center justify-center text-center mx-10">
+            <HeroTitle />
+          </div>
+
+          {/* ORBIT SHIRT */}
+          <HeroOrbit
+            rotateX={rotateX}
+            rotateY={rotateY}
+            angle={angle}
+          />
+
+          {/* FEATURES */}
+          <HeroFunctions />
+
+          {/* BUTTONS */}
+          <HeroButtons />
+
+        </div>
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ export default function HeroContent() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
-            className="space-y-7 max-w-xl mx-auto text-center lg:text-left lg:mx-16 lg:pl-10 pt-8"
+            className="space-y-7 max-w-xl lg:mx-16 lg:pl-10 lg:pt-8"
         >
 
             {/* TITLE */}
