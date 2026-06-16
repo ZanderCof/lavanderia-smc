@@ -8,23 +8,23 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   const sections = [
-    {
-      title: "Servizi",
-      links: [
-        { name: "Lavaggio a secco", href: "/servizi" },
-        { name: "Lavanderia Self", href: "/servizi" },
-        { name: "Stireria professionale", href: "/servizi" },
-        { name: "Abiti da Cerimonia", href: "/cerimonia" },
-      ],
-    },
-    {
-      title: "Supporto",
-      links: [
-        { name: "Listino Prezzi", href: "/prezzi" },
-        { name: "Chi Siamo", href: "/chi-siamo" },
-        { name: "Contattaci", href: "/contatti" },
-      ],
-    },
+    // {
+    //   title: "Servizi",
+    //   links: [
+    //     { name: "Lavaggio a secco", href: "/servizi" },
+    //     { name: "Lavanderia Self", href: "/servizi" },
+    //     { name: "Stireria professionale", href: "/servizi" },
+    //     { name: "Abiti da Cerimonia", href: "/cerimonia" },
+    //   ],
+    // },
+    // {
+    //   title: "Supporto",
+    //   links: [
+    //     { name: "Listino Prezzi", href: "/prezzi" },
+    //     { name: "Chi Siamo", href: "/chi-siamo" },
+    //     { name: "Contattaci", href: "/contatti" },
+    //   ],
+    // },
     {
       title: "Legale",
       links: [
@@ -75,7 +75,7 @@ export default function Footer() {
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-100">
                   <Phone size={14} className="text-blue-500" />
                 </div>
-                +39 02 99050084
+                +39 327 4346 729
               </div>
               <div className="flex items-center gap-3 text-sm text-slate-600">
                 <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-sm border border-slate-100">
@@ -128,7 +128,7 @@ export default function Footer() {
 
           {/* EMAIL & CREDIT STARTINGLINE */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-            <Link href="https://wa.me/390299050084" className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors">
+            <Link href="https://wa.me/393274346729" className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors">
               <MessageCircle size={14} />
               WhatsApp
             </Link>
@@ -140,7 +140,7 @@ export default function Footer() {
 
             {/* BADGE CREDITI STARTINGLINE */}
             <Link
-              href="https://vercel.app"
+              href="https://startingline-gamma.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-auto flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-slate-400 hover:text-slate-600 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200/50 transition-all active:scale-95"

@@ -4,13 +4,12 @@ import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { OP_HOURS } from "@/lib/constants/business-hours";
 
-
 export default function OpenStatus() {
   const [isOpen, setIsOpen] = useState<boolean | null>(null);
 
   const scrollToHours = () => {
     document
-      .getElementById("business-hours")
+      ?.getElementById("business-hours")
       ?.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -59,9 +58,10 @@ export default function OpenStatus() {
           onClick={scrollToHours}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-2 bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full border border-emerald-700 text-xs font-bold cursor-pointer"
+          // Aggiunte le classi whitespace-nowrap e shrink-0
+          className="flex items-center gap-2 bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full border border-emerald-700 text-xs font-bold cursor-pointer whitespace-nowrap shrink-0"
         >
-          <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+          <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shrink-0" />
           Aperto Ora
         </motion.div>
       ) : (
@@ -70,9 +70,10 @@ export default function OpenStatus() {
           onClick={scrollToHours}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-2 bg-rose-50 text-rose-700 px-2 py-1 rounded-full border border-rose-100 text-xs font-bold cursor-pointer"
+          // Aggiunte le classi whitespace-nowrap e shrink-0
+          className="flex items-center gap-2 bg-rose-50 text-rose-700 px-2 py-1 rounded-full border border-rose-100 text-xs font-bold cursor-pointer whitespace-nowrap shrink-0"
         >
-          <span className="w-2 h-2 bg-rose-500 rounded-full" />
+          <span className="w-2 h-2 bg-rose-500 rounded-full shrink-0" />
           Chiuso Ora
         </motion.div>
       )}

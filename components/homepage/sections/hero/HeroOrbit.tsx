@@ -21,24 +21,38 @@ export default function HeroOrbit({
     rotateY,
     angle,
 }: HeroOrbitProps) {
-    const radiusX = 260;
-    const radiusY = 90;
-
     const [mounted, setMounted] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => { setMounted(true) }, []);
+useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    setIsMobile(mq.matches);
+    
+    // Sposta l'esecuzione al prossimo ciclo di eventi, risolvendo il cascading render sincrono
+    setTimeout(() => {
+        setMounted(true);
+    }, 0);
 
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+}, []);
+
+    // Se non è montato sul client, evitiamo il render per prevenire hydration mismatch
     if (!mounted) return null;
+
+    const radiusX = isMobile ? 160 : 260;
+    const radiusY = isMobile ? 55 : 90;
 
     return (
         <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative h-130 flex items-center justify-center"
+            className="relative flex items-center justify-center h-80 sm:h-130"
         >
             {/* glow centrale */}
-            <div className="absolute w-65 h-65 bg-blue-100/20 blur-3xl rounded-full" />
+            <div className="absolute w-40 h-40 sm:w-65 sm:h-65 bg-blue-100/20 blur-3xl rounded-full" />
 
             {/* camicia */}
             <motion.div
@@ -64,7 +78,7 @@ export default function HeroOrbit({
                 />
             </motion.div>
 
-            {mounted && HERO_BUBBLES.map((bubble, i) => (
+            {HERO_BUBBLES.map((bubble, i) => (
                 <HeroBubble
                     key={bubble.label}
                     label={bubble.label}
