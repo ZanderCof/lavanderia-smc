@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { OP_HOURS } from "./hoursTable";
+import { OP_HOURS } from "@/lib/constants/business-hours";
 
 
 export default function OpenStatus() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean | null>(null);
 
   const scrollToHours = () => {
     document
@@ -29,15 +29,15 @@ export default function OpenStatus() {
         return;
       }
 
-      const currentTime = now.getHours() * 100 + now.getMinutes();
+      const currentMinute = now.getHours() * 60 + now.getMinutes();
 
       const [openH, openM] = todayHours.open.split(":").map(Number);
       const [closeH, closeM] = todayHours.close.split(":").map(Number);
 
-      const openTime = openH * 100 + openM;
-      const closeTime = closeH * 100 + closeM;
+      const openMinutes = openH * 60 + openM;
+      const closeMinutes = closeH * 60 + closeM;
 
-      setIsOpen(currentTime >= openTime && currentTime <= closeTime);
+      setIsOpen(currentMinute >= openMinutes && currentMinute <= closeMinutes);
     };
 
     checkOpenStatus();
@@ -46,10 +46,15 @@ export default function OpenStatus() {
     return () => clearInterval(interval);
   }, []);
 
+  if (isOpen === null) return null;
+
   return (
     <AnimatePresence mode="wait">
       {isOpen ? (
         <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
           key="open"
           onClick={scrollToHours}
           whileHover={{ scale: 1.05 }}

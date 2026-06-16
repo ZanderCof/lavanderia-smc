@@ -1,5 +1,5 @@
-import { ServicesHeader } from "@/components/mycomponents/services/ServicesHeader";
-import { ServicesDetails } from "@/components/mycomponents/services/ServicesDetails";
+import { ServicesHeader } from "@/components/services/ServicesHeader";
+import { ServicesDetails } from "@/components/services/ServicesDetails";
 
 export default function ServicesPage() {
   return (

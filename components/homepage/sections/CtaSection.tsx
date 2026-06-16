@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function CtaSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-20 ">
+    <section className="max-w-5xl mx-auto px-6 pt-6 pb-20 ">
       <div className="relative overflow-hidden rounded-[40px] bg-slate-900 text-white ">
         
         {/* Glow effects */}
@@ -44,7 +44,7 @@ export function CtaSection() {
           </div>
 
           {/* Immagine */}
-          <div className="flex justify-center lg:justify-end lg:pr-12">
+          <div className="flex justify-center lg:justify-end lg:pr-12 pb-5 lg:pb-0">
             <div className="relative">
               <div className="absolute inset-0 bg-blue-500/20 blur-3xl rounded-full" />
 
