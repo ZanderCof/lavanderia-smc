@@ -1,6 +1,5 @@
 "use client";
 
-import { FeaturesBento } from "@/components/homepage/sections/FeaturesBento";
 import { CtaSection } from "@/components/homepage/sections/CtaSection";
 import { HeroLaundry } from "@/components/homepage/sections/HeroLaundry";
 import { ServiceCoverageSection } from "@/components/homepage/sections/ServiceCoverageSection";

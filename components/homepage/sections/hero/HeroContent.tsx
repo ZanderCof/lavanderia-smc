@@ -1,12 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { HERO_FEATURES } from "@/lib/constants/homepage";
 import HeroTitle from "./HeroTitle";
 import HeroFunctions from "./HeroFunctions";
-import HeroButtons from "./HeroButtons";
 
 export default function HeroContent() {
     return (

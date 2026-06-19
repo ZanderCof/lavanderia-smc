@@ -28,7 +28,8 @@ export default function Navbar() {
     }
 
     const handleResize = () => {
-      if (window.innerWidth >= 640) { // breakpoint 'sm' di Tailwind
+      if (window.innerWidth >= 640) {
+        // breakpoint 'sm' di Tailwind
         setIsMobileMenuOpen(false);
       }
     };
@@ -54,10 +55,12 @@ export default function Navbar() {
         }`}
       >
         <div className="grid grid-cols-3 items-center h-16 px-2">
-
           {/* LOGO */}
           <div className="justify-self-start">
-            <Link href="/" className="flex items-center gap-3 group shrink-0 min-w-0">
+            <Link
+              href="/"
+              className="flex items-center gap-3 group shrink-0 min-w-0"
+            >
               <motion.div
                 whileHover={{ rotate: 15, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300, damping: 15 }}
@@ -68,6 +71,8 @@ export default function Navbar() {
                   fill
                   alt="Logo LavaseccoSCM"
                   className="object-contain"
+                  // 💡 AGGIUNGI QUESTA RIGA:
+                  sizes="44px"
                 />
               </motion.div>
 
@@ -109,7 +114,9 @@ export default function Navbar() {
                   className={`flex items-center gap-2 px-3 md:px-4 h-10 rounded-full bg-linear-to-r ${action.color} text-white shadow-md hover:shadow-lg active:scale-95 transition-all`}
                 >
                   <Icon size={17} />
-                  <span className="hidden lg:inline text-sm font-medium">{action.label}</span>
+                  <span className="hidden lg:inline text-sm font-medium">
+                    {action.label}
+                  </span>
                 </motion.a>
               );
             })}
@@ -137,7 +144,6 @@ export default function Navbar() {
               }`}
             />
           </button>
-
         </div>
       </nav>
 

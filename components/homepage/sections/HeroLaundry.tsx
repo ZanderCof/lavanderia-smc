@@ -7,7 +7,6 @@ import HeroContent from "./hero/HeroContent";
 import HeroOrbit from "./hero/HeroOrbit";
 import HeroTitle from "./hero/HeroTitle";
 import HeroFunctions from "./hero/HeroFunctions";
-import HeroButtons from "./hero/HeroButtons";
 
 
 export function HeroLaundry() {

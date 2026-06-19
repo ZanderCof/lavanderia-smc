@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
+import withBundleAnalyzer from "@next/bundle-analyzer";
 
-const nextConfig: NextConfig = {
+const config: NextConfig = {
+  // ⚡ FORZA LA RICOMPILAZIONE MODERNA DI QUESTI PACCHETTI:
+  transpilePackages: ["framer-motion", "motion-dom"],
+
   images: {
     remotePatterns: [
       {
@@ -8,7 +12,6 @@ const nextConfig: NextConfig = {
         hostname: 'www.pngarts.com',
         pathname: '/**',
       },
-      // Aggiungi anche questo se vuoi usare le foto degli utenti (pravatar)
       {
         protocol: 'https',
         hostname: 'i.pravatar.cc',
@@ -17,5 +20,9 @@ const nextConfig: NextConfig = {
     ],
   },
 };
+
+const nextConfig = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+})(config);
 
 export default nextConfig;
