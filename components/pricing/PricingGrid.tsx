@@ -8,11 +8,12 @@ const pricingCategories = [
     icon: <Shirt size={22} className="text-blue-600" />,
     color: "bg-blue-500/10 border-blue-500/20",
     items: [
-      { name: "Camicia (lavata e stirata)", price: "€ 3,50", note: "Appesa o piegata" },
-      { name: "Giacca / Blazer", price: "€ 8,00", note: "A secco o acqua" },
-      { name: "Pantalone / Gonna", price: "€ 6,50", note: "Stiratura perfetta" },
-      { name: "Cappotto / Soprabito", price: "€ 14,00", note: "Trattamento protettivo" },
-      { name: "Maglione / Lana", price: "€ 5,50", note: "Idratante anti-infeltrente" },
+      { name: "Camicia", price: "€ 4,00" },
+      { name: "Giacca", price: "€ 5,00" },
+      { name: "Pantalone", price: "€ 4,00" },
+      { name: "Cappotto", price: "€ 10,00" },
+      { name: "Giaccone", price: "€ 8,00" },
+      { name: "Maglia", price: "€ 3,00" },
     ]
   },
   {
@@ -20,11 +21,11 @@ const pricingCategories = [
     icon: <Home size={22} className="text-amber-600" />,
     color: "bg-amber-500/10 border-amber-500/20",
     items: [
-      { name: "Piumone Matrimoniale", price: "€ 22,00", note: "Custodia inclusa" },
-      { name: "Trapunta Singola", price: "€ 18,00", note: "Igienizzazione profonda" },
-      { name: "Tende (al mq)", price: "€ 4,50", note: "Smontaggio escluso" },
-      { name: "Tovaglia grande", price: "€ 7,00", note: "Trattamento antimacchia" },
-      { name: "Tappeto (al mq)", price: "€ 12,00", note: "Specialisti tappeti" },
+      { name: "Piumone Matrimoniale", price: "€ 22,00" },
+      { name: "Piumone Singolo", price: "€ 18,00" },
+      { name: "Piumone in Piuma d'Oca", price: "€ 22,00" },
+      { name: "Tappeti", price: "€ 6,00" },
+      { name: "Tende (al metro)", price: "€ 5,00" },
     ]
   },
   {
@@ -32,11 +33,11 @@ const pricingCategories = [
     icon: <Sparkles size={22} className="text-purple-600" />,
     color: "bg-purple-500/10 border-purple-500/20",
     items: [
-      { name: "Abito da Sposa", price: "da € 90", note: "In scatola protettiva" },
-      { name: "Abito da Cerimonia", price: "€ 25,00", note: "Seta, strass, pizzi" },
-      { name: "Giacca in Pelle / Antilope", price: "€ 45,00", note: "Nutriente e ravvivante" },
-      { name: "Tuta da Sci (Giacca + Pant)", price: "€ 28,00", note: "Impermeabilizzazione" },
-      { name: "Capi in Piuma d'Oca", price: "€ 16,00", note: "Asciugatura volumizzante" },
+      { name: "Abiti da Sposa", price: "da € 80,00" },
+      { name: "Abiti da Cerimonia", price: "A vista" },
+      { name: "Capi in Pelle", price: "da € 50,00" },
+      { name: "Tute da Sci", price: "€ 12,00" },
+      { name: "Giaccone Piuma", price: "da € 13,00" },
     ]
   }
 ];
@@ -79,19 +80,16 @@ export function PricingGrid() {
                           {item.price}
                         </span>
                       </div>
-                      <span className="text-[11px] font-medium text-slate-400">
-                        {item.note}
-                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Footer della Card con rassicurazione */}
-              <div className="mt-8 pt-4 border-t border-slate-100 flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+              {/* <div className="mt-8 pt-4 border-t border-slate-100 flex items-center gap-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
                 <CheckCircle2 size={12} className="text-emerald-500" />
                 <span>Stiratura artigianale inclusa</span>
-              </div>
+              </div> */}
             </motion.div>
           ))}
 

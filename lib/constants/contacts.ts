@@ -6,8 +6,8 @@ export const BUSINESS_SUBTITLE = "Lavanderia & Lavasecco";
 export const PHONE = "+39 02 99050084";
 export const PHONE_HREF = "tel:+390299050084";
 
-export const EMAIL = "info@lavanderiascm.it";
-export const EMAIL_HREF = "mailto:info@lavanderiascm.it";
+export const EMAIL = "lavasecco.scm@gmail.com";
+export const EMAIL_HREF = "mailto:lavasecco.scm@gmail.com";
 
 export const WHATSAPP = "393274346729";
 export const WHATSAPP_HREF = `https://wa.me/${WHATSAPP}`;

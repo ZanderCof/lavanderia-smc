@@ -11,11 +11,11 @@ export function LocaleMap() {
       label: "Indirizzo",
       value: ADDRESS,
     },
-    {
-      icon: CONTACT_INFO_ICONS.hours,
-      label: "Orari",
-      value: HOURS_SUMMARY,
-    },
+    // {
+    //   icon: CONTACT_INFO_ICONS.hours,
+    //   label: "Orari",
+    //   value: HOURS_SUMMARY,
+    // },
     {
       icon: CONTACT_INFO_ICONS.phone,
       label: "Telefono",

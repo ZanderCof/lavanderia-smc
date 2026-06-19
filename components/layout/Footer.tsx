@@ -133,9 +133,9 @@ export default function Footer() {
               WhatsApp
             </Link>
 
-            <Link href="mailto:info@lavanderiascm.it" className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors">
+            <Link href="mailto:lavasecco.scm@gmail.com" className="flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-600 transition-colors">
               <Mail size={14} />
-              info@lavanderiascm.it
+              lavasecco.scm@gmail.com
             </Link>
 
             {/* BADGE CREDITI STARTINGLINE */}
