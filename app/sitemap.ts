@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://www.lavanderiascm.it";
+const BASE_URL = "https://lavanderia-smc.vercel.app/";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
