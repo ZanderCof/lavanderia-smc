@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.lavanderiascm.it/sitemap.xml",
+    sitemap: "https://lavanderia-smc.vercel.app/sitemap.xml",
   };
 }

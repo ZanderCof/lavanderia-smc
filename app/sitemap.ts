@@ -14,8 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   return routes.map(({ path, changeFrequency, priority }) => ({
-    url: `${BASE_URL}${path}`, // Ora genererà correttamente "https://vercel.app"
-    lastModified: new Date(),
+    url: `${BASE_URL}${path}`, 
     changeFrequency,
     priority,
   }));
