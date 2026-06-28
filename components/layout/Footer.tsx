@@ -140,15 +140,15 @@ export default function Footer() {
 
             {/* BADGE CREDITI STARTINGLINE */}
             <Link
-              href="https://startingline-gamma.vercel.app/"
+              href="https://nuviio-liard.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-auto flex items-center gap-1.5 text-[10px] uppercase tracking-wider font-bold text-slate-400 hover:text-slate-600 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200/50 transition-all active:scale-95"
             >
               <span>Made by</span>
               <span className="font-black">
-                <span className="text-blue-600">Starting</span>
-                <span className="text-slate-800">Line</span>
+                <span className="text-blue-600">Nu</span>
+                <span className="text-slate-800">viio</span>
               </span>
             </Link>
           </div>
