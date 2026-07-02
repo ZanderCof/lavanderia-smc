@@ -18,10 +18,28 @@ const jetBrainsMono = JetBrains_Mono({
   display: "swap", // 💡 Stessa cosa qui
 });
 
+const siteUrl = "https://lavanderia-smc.vercel.app";
+const title = "Lavasecco SCM";
+const description =
+  "Lavanderia professionale specializzata nel lavaggio di tappeti, trapunte, piumoni, capi in pelle e biancheria. Servizio rapido, abiti da cerimonia, cura dei tessuti e qualità garantita.";
+
 export const metadata: Metadata = {
-  title: "Lavasecco SCM",
-  description:
-    "Lavanderia professionale specializzata nel lavaggio di tappeti, trapunte, piumoni, capi in pelle e biancheria. Servizio rapido, abiti da cerimonia, cura dei tessuti e qualità garantita.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    url: siteUrl,
+    siteName: title,
+    locale: "it_IT",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
